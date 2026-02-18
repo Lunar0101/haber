@@ -52,6 +52,8 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
         }
 
         .logo h1 {
@@ -421,6 +423,107 @@
             margin-bottom: 15px;
         }
 
+        /* SOSYAL MEDYA BÖLÜMÜ - GÜNCELLENMİŞ */
+        .social-media-section {
+            background: white;
+            border-radius: 15px;
+            padding: 40px 30px;
+            margin: 50px 0;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+            text-align: center;
+        }
+
+        .social-media-section h3 {
+            font-size: 2rem;
+            color: #2c3e50;
+            margin-bottom: 20px;
+        }
+
+        .social-media-section h3 i {
+            color: #e74c3c;
+            margin-right: 10px;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            flex-wrap: wrap;
+            margin: 30px 0;
+        }
+
+        .social-link {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-decoration: none;
+            color: #34495e;
+            transition: all 0.3s;
+            gap: 10px;
+        }
+
+        .social-link:hover {
+            transform: translateY(-10px);
+        }
+
+        .social-icon {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            transition: all 0.3s;
+        }
+
+        .social-link:hover .social-icon {
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+        }
+
+        .social-icon.youtube {
+            background: #ff0000;
+            color: white;
+        }
+
+        .social-icon.tiktok {
+            background: #000000;
+            color: white;
+        }
+
+        .social-icon.instagram {
+            background: linear-gradient(45deg, #f09433, #d62976, #962fbf, #4f5bd5);
+            color: white;
+        }
+
+        .social-icon.twitter {
+            background: #1da1f2;
+            color: white;
+        }
+
+        .social-icon.facebook {
+            background: #1877f2;
+            color: white;
+        }
+
+        .social-link span {
+            font-weight: 600;
+            font-size: 1rem;
+        }
+
+        .social-stats {
+            display: flex;
+            justify-content: center;
+            gap: 50px;
+            margin-top: 30px;
+            color: #7f8c8d;
+        }
+
+        .social-stats i {
+            color: #e74c3c;
+            margin-right: 5px;
+        }
+
         /* NEWSLETTER */
         .newsletter {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
@@ -431,16 +534,6 @@
             text-align: center;
             position: relative;
             overflow: hidden;
-        }
-
-        .newsletter::before {
-            content: '📰';
-            position: absolute;
-            top: -30px;
-            right: -30px;
-            font-size: 150px;
-            opacity: 0.1;
-            transform: rotate(15deg);
         }
 
         .newsletter h3 {
@@ -595,20 +688,19 @@
             color: white;
         }
 
-        .social-icons {
+        .footer-social {
             display: flex;
             gap: 20px;
             margin-top: 25px;
         }
 
-        .social-icons i {
-            font-size: 1.8rem;
+        .footer-social a {
             color: #bdc3c7;
-            cursor: pointer;
+            font-size: 1.5rem;
             transition: all 0.3s;
         }
 
-        .social-icons i:hover {
+        .footer-social a:hover {
             color: #e74c3c;
             transform: translateY(-3px);
         }
@@ -634,12 +726,14 @@
         }
 
         @media (max-width: 768px) {
-            .header-main { flex-direction: column; gap: 20px; }
+            .header-main { flex-direction: column; align-items: stretch; }
             .search-bar { width: 100%; }
             .news-grid { grid-template-columns: 1fr; }
             .popular-grid { grid-template-columns: repeat(2, 1fr); }
             .video-grid { grid-template-columns: 1fr; }
             .footer-grid { grid-template-columns: 1fr; }
+            .social-links { gap: 20px; }
+            .social-icon { width: 60px; height: 60px; font-size: 2rem; }
         }
     </style>
 </head>
@@ -677,8 +771,8 @@
                     <li onclick="filterNews('sağlık')">Sağlık</li>
                     <li onclick="filterNews('kültür')">Kültür-Sanat</li>
                     <li onclick="filterNews('dünya')">Dünya</li>
-                    <li onclick="filterNews('bilim')">Bilim</li>
-                    <li onclick="filterNews('magazin')">Magazin</li>
+                    <li onclick="filterNews('asayiş')">Asayiş</li>
+                    <li onclick="filterNews('siber')">Siber Güvenlik</li>
                 </ul>
             </div>
         </div>
@@ -689,7 +783,7 @@
         <div class="container">
             <div class="breaking-content">
                 <span class="breaking-label">SON DAKİKA</span>
-                <span class="breaking-text">📢 Cumhurbaşkanı Erdoğan'dan asgari ücret açıklaması • 💰 Dolar tarihi zirvede • ⚽ Fenerbahçe'de kongre tarihi belli oldu • 🤖 Yapay zeka devrimi • 🌍 Deprem uzmanından kritik uyarı</span>
+                <span class="breaking-text">🔴 Ahmet Minguzu olayında yeni gelişme • 💻 Türk Telekom'a büyük siber saldırı • 💰 İflas eden şirketler listesi açıklandı • 🔪 Kadıköy'de bıçaklı saldırı • 🏦 Büyük holding konkordato ilan etti</span>
             </div>
         </div>
     </div>
@@ -701,56 +795,56 @@
             <span class="category-tag" onclick="filterNews('siyaset')">Siyaset</span>
             <span class="category-tag" onclick="filterNews('ekonomi')">Ekonomi</span>
             <span class="category-tag" onclick="filterNews('teknoloji')">Teknoloji</span>
+            <span class="category-tag" onclick="filterNews('siber')">Siber Saldırı</span>
+            <span class="category-tag" onclick="filterNews('asayiş')">Asayiş</span>
             <span class="category-tag" onclick="filterNews('spor')">Spor</span>
             <span class="category-tag" onclick="filterNews('magazin')">Magazin</span>
             <span class="category-tag" onclick="filterNews('dünya')">Dünya</span>
             <span class="category-tag" onclick="filterNews('sağlık')">Sağlık</span>
             <span class="category-tag" onclick="filterNews('bilim')">Bilim</span>
-            <span class="category-tag" onclick="filterNews('kültür')">Kültür</span>
-            <span class="category-tag" onclick="filterNews('otomobil')">Otomobil</span>
-            <span class="category-tag" onclick="filterNews('eğitim')">Eğitim</span>
+            <span class="category-tag" onclick="filterNews('ekonomi')">Şirket</span>
         </div>
 
         <!-- ÖNE ÇIKAN HABERLER -->
         <div class="featured-news">
-            <div class="main-news" onclick="openNews('erdogan-asgari-ucret')">
-                <img src="https://images.unsplash.com/photo-1529107386315-e1a2ed48a620?w=800" alt="Cumhurbaşkanı Erdoğan">
+            <div class="main-news" onclick="openNews('ahmet-minguzu')">
+                <img src="https://images.unsplash.com/photo-1589829545856-d10d557cf95f?w=800" alt="Ahmet Minguzu">
                 <div class="main-news-content">
-                    <span class="news-category">Siyaset</span>
-                    <h2>Cumhurbaşkanı Erdoğan'dan asgari ücret mesajı: "Çalışanların yanındayız"</h2>
+                    <span class="news-category">Asayiş</span>
+                    <h2>Ahmet Minguzu olayında flaş gelişme! Yeni deliller ortaya çıktı</h2>
                     <div class="news-meta">
                         <span><i class="far fa-clock"></i> 2 saat önce</span>
-                        <span><i class="far fa-eye"></i> 15.4K okunma</span>
-                        <span><i class="far fa-comment"></i> 234 yorum</span>
+                        <span><i class="far fa-eye"></i> 145K okunma</span>
+                        <span><i class="far fa-comment"></i> 1.2K yorum</span>
                     </div>
                 </div>
             </div>
             <div class="side-news">
-                <div class="side-news-item" onclick="openNews('dolar-rekor')">
-                    <img src="https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=400" alt="Dolar">
+                <div class="side-news-item" onclick="openNews('siber-saldiri')">
+                    <img src="https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=400" alt="Siber Saldırı">
                     <div class="side-news-content">
-                        <span class="news-category" style="background: #3498db;">Ekonomi</span>
-                        <h4>Dolar kurunda tarihi rekor! Uzmanlar uyarıyor: "Dikkatli olun"</h4>
+                        <span class="news-category" style="background: #3498db;">Siber Güvenlik</span>
+                        <h4>Türk Telekom'a dev siber saldırı! 50 bin kullanıcının verisi sızdırıldı</h4>
                         <div class="news-meta">
                             <span><i class="far fa-clock"></i> 3 saat önce</span>
                         </div>
                     </div>
                 </div>
-                <div class="side-news-item" onclick="openNews('apple-vision')">
-                    <img src="https://images.unsplash.com/photo-1581091226033-d5c48150dbaa?w=400" alt="Apple Vision Pro">
+                <div class="side-news-item" onclick="openNews('sirket-batti')">
+                    <img src="https://images.unsplash.com/photo-1590283603385-17ffb3a7f29f?w=400" alt="Şirket İflas">
                     <div class="side-news-content">
-                        <span class="news-category" style="background: #9b59b6;">Teknoloji</span>
-                        <h4>Apple Vision Pro Türkiye'ye geliyor! İşte fiyatı ve özellikleri</h4>
+                        <span class="news-category" style="background: #9b59b6;">Ekonomi</span>
+                        <h4>Ünlü tekstil devi iflas etti! 3 bin kişi işsiz kaldı</h4>
                         <div class="news-meta">
                             <span><i class="far fa-clock"></i> 5 saat önce</span>
                         </div>
                     </div>
                 </div>
-                <div class="side-news-item" onclick="openNews('gs-transfer')">
-                    <img src="https://images.unsplash.com/photo-1579952363873-27f3bade9f55?w=400" alt="Galatasaray">
+                <div class="side-news-item" onclick="openNews('bicakli-saldiri')">
+                    <img src="https://images.unsplash.com/photo-1582139329536-e7284fece509?w=400" alt="Bıçaklı Saldırı">
                     <div class="side-news-content">
-                        <span class="news-category" style="background: #27ae60;">Spor</span>
-                        <h4>Galatasaray'da yıldız oyuncu ile yollar ayrılıyor! İşte yeni takımı</h4>
+                        <span class="news-category" style="background: #27ae60;">Asayiş</span>
+                        <h4>Kadıköy'de bıçaklı dehşet! Bir kişi hayatını kaybetti</h4>
                         <div class="news-meta">
                             <span><i class="far fa-clock"></i> 6 saat önce</span>
                         </div>
@@ -761,40 +855,275 @@
 
         <!-- POPÜLER HABERLER -->
         <div class="popular-news">
-            <h3 style="font-size: 1.5rem;">🔴 ÇOK OKUNANLAR</h3>
+            <h3 style="font-size: 1.5rem;">🔴 TÜRKİYE GÜNDEMİ - EN ÇOK OKUNANLAR</h3>
             <div class="popular-grid">
-                <div class="popular-item" onclick="openNews('populer-1')">
-                    <img src="https://images.unsplash.com/photo-1541872703-74c5e44368f9?w=400" alt="Haber">
-                    <span>1.</span> Meclis'te kavga çıktı
+                <div class="popular-item" onclick="openNews('minguzu')">
+                    <img src="https://images.unsplash.com/photo-1589829545856-d10d557cf95f?w=400" alt="Haber">
+                    <span>1.</span> Ahmet Minguzu'da yeni detay
                 </div>
-                <div class="popular-item" onclick="openNews('populer-2')">
-                    <img src="https://images.unsplash.com/photo-1582794543139-8ac9cb0f7b11?w=400" alt="Haber">
-                    <span>2.</span> Faiz kararı açıklandı
+                <div class="popular-item" onclick="openNews('telekom')">
+                    <img src="https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=400" alt="Haber">
+                    <span>2.</span> Siber saldırı faciası
                 </div>
-                <div class="popular-item" onclick="openNews('populer-3')">
-                    <img src="https://images.unsplash.com/photo-1581091226033-d5c48150dbaa?w=400" alt="Haber">
-                    <span>3.</span> TOGG'a büyük zam
+                <div class="popular-item" onclick="openNews('iflas')">
+                    <img src="https://images.unsplash.com/photo-1590283603385-17ffb3a7f29f?w=400" alt="Haber">
+                    <span>3.</span> Tekstil devi battı
                 </div>
-                <div class="popular-item" onclick="openNews('populer-4')">
-                    <img src="https://images.unsplash.com/photo-1517466787929-bc90951d0974?w=400" alt="Haber">
-                    <span>4.</span> Beşiktaş'ta flaş gelişme
+                <div class="popular-item" onclick="openNews('kadikoy')">
+                    <img src="https://images.unsplash.com/photo-1582139329536-e7284fece509?w=400" alt="Haber">
+                    <span>4.</span> Kadıköy'de kanlı gece
                 </div>
-                <div class="popular-item" onclick="openNews('populer-5')">
-                    <img src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=400" alt="Haber">
-                    <span>5.</span> iPhone 17 sızdırıldı
+                <div class="popular-item" onclick="openNews('kripto')">
+                    <img src="https://images.unsplash.com/photo-1621501011942-8fc7fe1e1e7d?w=400" alt="Haber">
+                    <span>5.</span> Kripto borsası çöktü
                 </div>
             </div>
         </div>
 
-        <!-- HABER GRİDLERİ (32 HABER) -->
+        <!-- SOSYAL MEDYA BÖLÜMÜ - GÜNCELLENMİŞ -->
+        <div class="social-media-section">
+            <h3><i class="fas fa-bolt"></i> BİLDİRİO SOSYAL MEDYA <i class="fas fa-bolt"></i></h3>
+            <p style="color: #7f8c8d; margin-bottom: 30px;">Bizi takip edin, en güncel haberlere anında ulaşın!</p>
+            
+            <div class="social-links">
+                <!-- YOUTUBE -->
+                <a href="https://youtube.com/@bildirio0?si=ALyoKe5zIQ4NuyGH" target="_blank" class="social-link">
+                    <div class="social-icon youtube">
+                        <i class="fab fa-youtube"></i>
+                    </div>
+                    <span>YouTube</span>
+                    <span style="font-size: 0.8rem; color: #e74c3c;">@bildirio0</span>
+                </a>
+
+                <!-- TIKTOK -->
+                <a href="https://tiktok.com/@bildirio0" target="_blank" class="social-link">
+                    <div class="social-icon tiktok">
+                        <i class="fab fa-tiktok"></i>
+                    </div>
+                    <span>TikTok</span>
+                    <span style="font-size: 0.8rem; color: #e74c3c;">@bildirio0</span>
+                </a>
+
+                <!-- INSTAGRAM -->
+                <a href="#" target="_blank" class="social-link">
+                    <div class="social-icon instagram">
+                        <i class="fab fa-instagram"></i>
+                    </div>
+                    <span>Instagram</span>
+                    <span style="font-size: 0.8rem; color: #e74c3c;">@bildirio</span>
+                </a>
+
+                <!-- TWITTER -->
+                <a href="#" target="_blank" class="social-link">
+                    <div class="social-icon twitter">
+                        <i class="fab fa-x-twitter"></i>
+                    </div>
+                    <span>X</span>
+                    <span style="font-size: 0.8rem; color: #e74c3c;">@bildirio</span>
+                </a>
+
+                <!-- FACEBOOK -->
+                <a href="#" target="_blank" class="social-link">
+                    <div class="social-icon facebook">
+                        <i class="fab fa-facebook"></i>
+                    </div>
+                    <span>Facebook</span>
+                    <span style="font-size: 0.8rem; color: #e74c3c;">/bildirio</span>
+                </a>
+            </div>
+
+            <div class="social-stats">
+                <span><i class="fab fa-youtube"></i> 4 abone</span>
+                <span><i class="fab fa-tiktok"></i> Yeni hesap</span>
+                <span><i class="fas fa-bell"></i> Anında haber</span>
+            </div>
+        </div>
+
+        <!-- SİBER GÜVENLİK HABERLERİ -->
+        <div class="section-title">
+            <h2>💻 SİBER GÜVENLİK</h2>
+            <a href="#" class="view-all">Tüm Siber Haberler →</a>
+        </div>
+        <div class="news-grid">
+            <!-- Haber 1 -->
+            <div class="news-card" data-category="siber" onclick="openNews('siber1')">
+                <img src="https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=400" alt="Siber Saldırı">
+                <div class="news-card-content">
+                    <span class="news-category">Siber Güvenlik</span>
+                    <h3>Türk Telekom'a büyük siber saldırı! 50 bin abonenin verileri çalındı</h3>
+                    <p>Ulusal siber güvenlik birimleri saldırının Rusya kaynaklı olduğunu değerlendiriyor.</p>
+                    <div class="news-meta">
+                        <span><i class="far fa-clock"></i> 2 saat önce</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Haber 2 -->
+            <div class="news-card" data-category="siber" onclick="openNews('siber2')">
+                <img src="https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?w=400" alt="Kripto">
+                <div class="news-card-content">
+                    <span class="news-category">Siber Güvenlik</span>
+                    <h3>Büyük kripto borsası çöktü! 2 milyar dolar buharlaştı</h3>
+                    <p>Siber saldırıya uğrayan borsa, tüm işlemleri durdurdu. Kullanıcılar paralarını çekemiyor.</p>
+                    <div class="news-meta">
+                        <span><i class="far fa-clock"></i> 4 saat önce</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Haber 3 -->
+            <div class="news-card" data-category="siber" onclick="openNews('siber3')">
+                <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=400" alt="Veri Sızıntısı">
+                <div class="news-card-content">
+                    <span class="news-category">Siber Güvenlik</span>
+                    <h3>Milli Savunma Bakanlığı'na siber saldırı girişimi engellendi</h3>
+                    <p>MSB kaynakları, saldırının kaynağının yurt dışı olduğunu ve başarısız olduğunu açıkladı.</p>
+                    <div class="news-meta">
+                        <span><i class="far fa-clock"></i> 6 saat önce</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Haber 4 -->
+            <div class="news-card" data-category="siber" onclick="openNews('siber4')">
+                <img src="https://images.unsplash.com/photo-1639322537504-6427a16b0a28?w=400" alt="Bankacılık">
+                <div class="news-card-content">
+                    <span class="news-category">Siber Güvenlik</span>
+                    <h3>Büyük bankaların müşteri verileri dark web'de satışa çıkarıldı</h3>
+                    <p>3 büyük bankaya ait 100 bin müşterinin bilgileri sızdırıldı. Bankalar soruşturma başlattı.</p>
+                    <div class="news-meta">
+                        <span><i class="far fa-clock"></i> 8 saat önce</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- EKONOMİ - ŞİRKET BATIŞLARI -->
+        <div class="section-title">
+            <h2>💰 ŞİRKET BATIŞLARI</h2>
+            <a href="#" class="view-all">Tüm Şirket Haberleri →</a>
+        </div>
+        <div class="news-grid">
+            <!-- Haber 5 -->
+            <div class="news-card" data-category="ekonomi" onclick="openNews('sirket1')">
+                <img src="https://images.unsplash.com/photo-1590283603385-17ffb3a7f29f?w=400" alt="İflas">
+                <div class="news-card-content">
+                    <span class="news-category">Ekonomi</span>
+                    <h3>Ünlü tekstil devi iflas bayrağını çekti! 50 yıllık firma kapandı</h3>
+                    <p>Ekonomik krizin kurbanı olan firma, 3 bin çalışanını işsiz bıraktı. Borçları 500 milyon TL.</p>
+                    <div class="news-meta">
+                        <span><i class="far fa-clock"></i> 2 saat önce</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Haber 6 -->
+            <div class="news-card" data-category="ekonomi" onclick="openNews('sirket2')">
+                <img src="https://images.unsplash.com/photo-1589829545856-d10d557cf95f?w=400" alt="Konkordato">
+                <div class="news-card-content">
+                    <span class="news-category">Ekonomi</span>
+                    <h3>Büyük inşaat şirketi konkordato ilan etti! Binlerce ev yarım kaldı</h3>
+                    <p>İstanbul'da 10'dan fazla projesi bulunan firma, iflasın eşiğinden döndü. Ev sahipleri mağdur.</p>
+                    <div class="news-meta">
+                        <span><i class="far fa-clock"></i> 4 saat önce</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Haber 7 -->
+            <div class="news-card" data-category="ekonomi" onclick="openNews('sirket3')">
+                <img src="https://images.unsplash.com/photo-1590283603385-17ffb3a7f29f?w=400" alt="İşsizlik">
+                <div class="news-card-content">
+                    <span class="news-category">Ekonomi</span>
+                    <h3>Tanınmış hazır giyim markası iflas etti! Mağazalar kapanıyor</h3>
+                    <p>Alışveriş merkezlerinde onlarca mağazası bulunan marka, konkordato talebinde bulundu.</p>
+                    <div class="news-meta">
+                        <span><i class="far fa-clock"></i> 6 saat önce</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Haber 8 -->
+            <div class="news-card" data-category="ekonomi" onclick="openNews('sirket4')">
+                <img src="https://images.unsplash.com/photo-1579621970795-87facc2f976d?w=400" alt="Kapanan Şirketler">
+                <div class="news-card-content">
+                    <span class="news-category">Ekonomi</span>
+                    <h3>2026'nın ilk 2 ayında 5 bin şirket kapandı! Rekor artış</h3>
+                    <p>Ekonomik krizde iflaslar hız kesmiyor. Geçen yıla göre yüzde 150 artış var.</p>
+                    <div class="news-meta">
+                        <span><i class="far fa-clock"></i> 8 saat önce</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ASAYİŞ - BIÇAKLI SALDIRILAR -->
+        <div class="section-title">
+            <h2>🔪 ASAYİŞ - BIÇAKLI SALDIRILAR</h2>
+            <a href="#" class="view-all">Tüm Asayiş Haberleri →</a>
+        </div>
+        <div class="news-grid">
+            <!-- Haber 9 - Ahmet Minguzu -->
+            <div class="news-card" data-category="asayiş" onclick="openNews('minguzu-detay')">
+                <img src="https://images.unsplash.com/photo-1589829545856-d10d557cf95f?w=400" alt="Ahmet Minguzu">
+                <div class="news-card-content">
+                    <span class="news-category">Asayiş</span>
+                    <h3>Ahmet Minguzu olayında yeni görüntüler ortaya çıktı! İşte detaylar</h3>
+                    <p>Olay anına ait yeni güvenlik kamerası görüntüleri ortaya çıktı. Soruşturma genişliyor.</p>
+                    <div class="news-meta">
+                        <span><i class="far fa-clock"></i> 2 saat önce</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Haber 10 -->
+            <div class="news-card" data-category="asayiş" onclick="openNews('asayis1')">
+                <img src="https://images.unsplash.com/photo-1582139329536-e7284fece509?w=400" alt="Bıçaklı Saldırı">
+                <div class="news-card-content">
+                    <span class="news-category">Asayiş</span>
+                    <h3>Kadıköy'de korkunç olay! Bir kişi bıçaklanarak öldürüldü</h3>
+                    <p>İddiaya göre aralarında alacak verecek meselesi bulunan iki grup arasında çıkan kavgada bir kişi hayatını kaybetti.</p>
+                    <div class="news-meta">
+                        <span><i class="far fa-clock"></i> 4 saat önce</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Haber 11 -->
+            <div class="news-card" data-category="asayiş" onclick="openNews('asayis2')">
+                <img src="https://images.unsplash.com/photo-1519058082700-08a0b56da9b4?w=400" alt="Kavga">
+                <div class="news-card-content">
+                    <span class="news-category">Asayiş</span>
+                    <h3>Beşiktaş'ta bıçaklı kavga: 2 yaralı</h3>
+                    <p>Eğlence mekanı önünde çıkan kavgada 2 kişi bıçakla yaralandı. Şüpheliler kaçtı.</p>
+                    <div class="news-meta">
+                        <span><i class="far fa-clock"></i> 6 saat önce</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Haber 12 -->
+            <div class="news-card" data-category="asayiş" onclick="openNews('asayis3')">
+                <img src="https://images.unsplash.com/photo-1502086223501-7ea6ecd79368?w=400" alt="Polis">
+                <div class="news-card-content">
+                    <span class="news-category">Asayiş</span>
+                    <h3>Çocuk çetesi korkusu: 15 yaşındaki çocuk bıçaklandı</h3>
+                    <p>İstanbul'da son günlerde artan çocuk çeteleri arasındaki hesaplaşmada bir genç ağır yaralandı.</p>
+                    <div class="news-meta">
+                        <span><i class="far fa-clock"></i> 8 saat önce</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <!-- GÜNDEM HABERLERİ -->
         <div class="section-title">
-            <h2>📰 GÜNDEM</h2>
+            <h2>📰 TÜRKİYE GÜNDEMİ</h2>
             <a href="#" class="view-all">Tüm Gündem Haberleri →</a>
         </div>
-        <div class="news-grid" id="newsGrid">
-            <!-- Haber 1 -->
-            <div class="news-card" data-category="siyaset" onclick="openNews('haber1')">
+        <div class="news-grid">
+            <!-- Haber 13 -->
+            <div class="news-card" data-category="gündem" onclick="openNews('gundem1')">
                 <img src="https://images.unsplash.com/photo-1541872703-74c5e44368f9?w=400" alt="Meclis">
                 <div class="news-card-content">
                     <span class="news-category">Siyaset</span>
@@ -806,8 +1135,8 @@
                 </div>
             </div>
 
-            <!-- Haber 2 -->
-            <div class="news-card" data-category="ekonomi" onclick="openNews('haber2')">
+            <!-- Haber 14 -->
+            <div class="news-card" data-category="gündem" onclick="openNews('gundem2')">
                 <img src="https://images.unsplash.com/photo-1582794543139-8ac9cb0f7b11?w=400" alt="Merkez Bankası">
                 <div class="news-card-content">
                     <span class="news-category">Ekonomi</span>
@@ -819,8 +1148,8 @@
                 </div>
             </div>
 
-            <!-- Haber 3 -->
-            <div class="news-card" data-category="teknoloji" onclick="openNews('haber3')">
+            <!-- Haber 15 -->
+            <div class="news-card" data-category="gündem" onclick="openNews('gundem3')">
                 <img src="https://images.unsplash.com/photo-1581091226033-d5c48150dbaa?w=400" alt="TOGG">
                 <div class="news-card-content">
                     <span class="news-category">Teknoloji</span>
@@ -832,8 +1161,8 @@
                 </div>
             </div>
 
-            <!-- Haber 4 -->
-            <div class="news-card" data-category="spor" onclick="openNews('haber4')">
+            <!-- Haber 16 -->
+            <div class="news-card" data-category="gündem" onclick="openNews('gundem4')">
                 <img src="https://images.unsplash.com/photo-1517466787929-bc90951d0974?w=400" alt="Beşiktaş">
                 <div class="news-card-content">
                     <span class="news-category">Spor</span>
@@ -844,322 +1173,34 @@
                     </div>
                 </div>
             </div>
-
-            <!-- Haber 5 -->
-            <div class="news-card" data-category="teknoloji" onclick="openNews('haber5')">
-                <img src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=400" alt="iPhone">
-                <div class="news-card-content">
-                    <span class="news-category">Teknoloji</span>
-                    <h3>iPhone 17 hakkında yeni sızıntılar</h3>
-                    <p>Apple'ın yeni amiral gemisinin kamera özellikleri ve tasarımı sızdırıldı. İşte ilk görüntüler.</p>
-                    <div class="news-meta">
-                        <span><i class="far fa-clock"></i> 10 saat önce</span>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Haber 6 -->
-            <div class="news-card" data-category="bilim" onclick="openNews('haber6')">
-                <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=400" alt="NASA">
-                <div class="news-card-content">
-                    <span class="news-category">Bilim</span>
-                    <h3>NASA'dan Mars keşfinde çığır açan buluş</h3>
-                    <p>Perseverance aracı Mars'ta organik moleküller keşfetti. Bilim dünyası heyecanlandı.</p>
-                    <div class="news-meta">
-                        <span><i class="far fa-clock"></i> 12 saat önce</span>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Haber 7 -->
-            <div class="news-card" data-category="yapay-zeka" onclick="openNews('haber7')">
-                <img src="https://images.unsplash.com/photo-1589254065878-42c9da997008?w=400" alt="Yapay Zeka">
-                <div class="news-card-content">
-                    <span class="news-category">Yapay Zeka</span>
-                    <h3>ChatGPT'nin yeni versiyonu geliyor</h3>
-                    <p>OpenAI, GPT-5'i duyurmaya hazırlanıyor. Yapay zeka asistanları çağ değiştirecek.</p>
-                    <div class="news-meta">
-                        <span><i class="far fa-clock"></i> 14 saat önce</span>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Haber 8 -->
-            <div class="news-card" data-category="oyun" onclick="openNews('haber8')">
-                <img src="https://images.unsplash.com/photo-1593508512255-86ab42a8e620?w=400" alt="GTA 6">
-                <div class="news-card-content">
-                    <span class="news-category">Oyun</span>
-                    <h3>GTA 6 çıkış tarihi ertelendi mi?</h3>
-                    <p>Rockstar Games'ten beklenen açıklama geldi. Oyunseverler endişeli bekleyişini sürdürüyor.</p>
-                    <div class="news-meta">
-                        <span><i class="far fa-clock"></i> 16 saat önce</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- EKONOMİ HABERLERİ -->
-        <div class="section-title">
-            <h2>📊 EKONOMİ</h2>
-            <a href="#" class="view-all">Tüm Ekonomi Haberleri →</a>
-        </div>
-        <div class="news-grid">
-            <!-- Haber 9 -->
-            <div class="news-card" data-category="ekonomi" onclick="openNews('haber9')">
-                <img src="https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=400" alt="Dolar">
-                <div class="news-card-content">
-                    <span class="news-category">Ekonomi</span>
-                    <h3>Dolar/TL'de yeni rekor: 35.80'i gördü</h3>
-                    <p>Kurda yükseliş devam ediyor. Uzmanlar yıl sonu tahminlerini güncelledi.</p>
-                    <div class="news-meta">
-                        <span><i class="far fa-clock"></i> 2 saat önce</span>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Haber 10 -->
-            <div class="news-card" data-category="ekonomi" onclick="openNews('haber10')">
-                <img src="https://images.unsplash.com/photo-1560472355-536de0a2ff2a?w=400" alt="Borsa">
-                <div class="news-card-content">
-                    <span class="news-category">Ekonomi</span>
-                    <h3>BIST 100'de rekor üstüne rekor</h3>
-                    <p>Borsa İstanbul'da yükseliş trendi devam ediyor. Endeks 12.000 puanı aştı.</p>
-                    <div class="news-meta">
-                        <span><i class="far fa-clock"></i> 3 saat önce</span>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Haber 11 -->
-            <div class="news-card" data-category="ekonomi" onclick="openNews('haber11')">
-                <img src="https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?w=400" alt="Enflasyon">
-                <div class="news-card-content">
-                    <span class="news-category">Ekonomi</span>
-                    <h3>Enflasyon rakamları açıklandı</h3>
-                    <p>TÜİK'e göre enflasyon aylık yüzde 3.4 arttı. Yıllık enflasyon yüzde 55.2 oldu.</p>
-                    <div class="news-meta">
-                        <span><i class="far fa-clock"></i> 5 saat önce</span>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Haber 12 -->
-            <div class="news-card" data-category="ekonomi" onclick="openNews('haber12')">
-                <img src="https://images.unsplash.com/photo-1579532536935-619928decd08?w=400" alt="Altın">
-                <div class="news-card-content">
-                    <span class="news-category">Ekonomi</span>
-                    <h3>Gram altın 3.000 TL'yi aştı</h3>
-                    <p>Altın fiyatlarında rekor serisi devam ediyor. Uzmanlar yükselişin süreceğini belirtiyor.</p>
-                    <div class="news-meta">
-                        <span><i class="far fa-clock"></i> 6 saat önce</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- TEKNOLOJİ HABERLERİ -->
-        <div class="section-title">
-            <h2>🤖 TEKNOLOJİ</h2>
-            <a href="#" class="view-all">Tüm Teknoloji Haberleri →</a>
-        </div>
-        <div class="news-grid">
-            <!-- Haber 13 -->
-            <div class="news-card" data-category="teknoloji" onclick="openNews('haber13')">
-                <img src="https://images.unsplash.com/photo-1677442136019-21780ecad995?w=400" alt="Yapay Zeka">
-                <div class="news-card-content">
-                    <span class="news-category">Yapay Zeka</span>
-                    <h3>DeepSeek yapay zeka asistanı Türkçe desteği aldı</h3>
-                    <p>Çin merkezli yapay zeka şirketi DeepSeek, Türkçe dil desteğini aktif hale getirdi.</p>
-                    <div class="news-meta">
-                        <span><i class="far fa-clock"></i> 2 saat önce</span>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Haber 14 -->
-            <div class="news-card" data-category="teknoloji" onclick="openNews('haber14')">
-                <img src="https://images.unsplash.com/photo-1611171717989-4110c0878660?w=400" alt="Samsung">
-                <div class="news-card-content">
-                    <span class="news-category">Mobil</span>
-                    <h3>Samsung Galaxy S26 tanıtıldı</h3>
-                    <p>Güney Koreli dev, yeni amiral gemisi modelini tanıttı. İşte fiyatı ve özellikleri.</p>
-                    <div class="news-meta">
-                        <span><i class="far fa-clock"></i> 4 saat önce</span>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Haber 15 -->
-            <div class="news-card" data-category="teknoloji" onclick="openNews('haber15')">
-                <img src="https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?w=400" alt="Kuantum">
-                <div class="news-card-content">
-                    <span class="news-category">Bilim</span>
-                    <h3>Google'dan kuantum bilgisayar atılımı</h3>
-                    <p>Google'ın yeni kuantum işlemcisi, süper bilgisayarların yıllarca sürecek işlemini dakikalar içinde tamamladı.</p>
-                    <div class="news-meta">
-                        <span><i class="far fa-clock"></i> 8 saat önce</span>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Haber 16 -->
-            <div class="news-card" data-category="teknoloji" onclick="openNews('haber16')">
-                <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=400" alt="5G">
-                <div class="news-card-content">
-                    <span class="news-category">İnternet</span>
-                    <h3>Türkiye'de 5G ihalesi tarihi belli oldu</h3>
-                    <p>Ulaştırma Bakanı, 5G ihalesinin Haziran 2026'da yapılacağını duyurdu.</p>
-                    <div class="news-meta">
-                        <span><i class="far fa-clock"></i> 10 saat önce</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- SPOR HABERLERİ -->
-        <div class="section-title">
-            <h2>⚽ SPOR</h2>
-            <a href="#" class="view-all">Tüm Spor Haberleri →</a>
-        </div>
-        <div class="news-grid">
-            <!-- Haber 17 -->
-            <div class="news-card" data-category="spor" onclick="openNews('haber17')">
-                <img src="https://images.unsplash.com/photo-1579952363873-27f3bade9f55?w=400" alt="Fenerbahçe">
-                <div class="news-card-content">
-                    <span class="news-category">Futbol</span>
-                    <h3>Fenerbahçe'de Mourinho ile yola devam kararı</h3>
-                    <p>Sarı-lacivertli yönetim, Portekizli teknik adamla yeni sözleşme imzalamaya hazırlanıyor.</p>
-                    <div class="news-meta">
-                        <span><i class="far fa-clock"></i> 2 saat önce</span>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Haber 18 -->
-            <div class="news-card" data-category="spor" onclick="openNews('haber18')">
-                <img src="https://images.unsplash.com/photo-1517466787929-bc90951d0974?w=400" alt="Galatasaray">
-                <div class="news-card-content">
-                    <span class="news-category">Futbol</span>
-                    <h3>Galatasaray'da Okan Buruk'tan flaş karar</h3>
-                    <p>Takımda formsuz oyuncular kadro dışı bırakıldı. Ara transferde bombalar patlayacak.</p>
-                    <div class="news-meta">
-                        <span><i class="far fa-clock"></i> 4 saat önce</span>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Haber 19 -->
-            <div class="news-card" data-category="spor" onclick="openNews('haber19')">
-                <img src="https://images.unsplash.com/photo-1575361204480-a5d5b7f5d1f9?w=400" alt="Basketbol">
-                <div class="news-card-content">
-                    <span class="news-category">Basketbol</span>
-                    <h3>Anadolu Efes, EuroLeague'de play-off yolunda</h3>
-                    <p>Temsilcimiz, Real Madrid deplasmanından galibiyetle döndü. İşte maçın detayları.</p>
-                    <div class="news-meta">
-                        <span><i class="far fa-clock"></i> 6 saat önce</span>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Haber 20 -->
-            <div class="news-card" data-category="spor" onclick="openNews('haber20')">
-                <img src="https://images.unsplash.com/photo-1461896836934-ffe607ba8211?w=400" alt="Tenis">
-                <div class="news-card-content">
-                    <span class="news-category">Tenis</span>
-                    <h3>Australian Open'da şampiyon Sinner</h3>
-                    <p>İtalyan tenisçi, Avustralya Açık'ta zafere ulaştı. Dünya 1 numarası yeni sezona hızlı başladı.</p>
-                    <div class="news-meta">
-                        <span><i class="far fa-clock"></i> 8 saat önce</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- DÜNYA HABERLERİ -->
-        <div class="section-title">
-            <h2>🌍 DÜNYA</h2>
-            <a href="#" class="view-all">Tüm Dünya Haberleri →</a>
-        </div>
-        <div class="news-grid">
-            <!-- Haber 21 -->
-            <div class="news-card" data-category="dünya" onclick="openNews('haber21')">
-                <img src="https://images.unsplash.com/photo-1485738422979-f5c462d49f74?w=400" alt="ABD">
-                <div class="news-card-content">
-                    <span class="news-category">ABD</span>
-                    <h3>ABD'de başkanlık seçimleri için son anketler</h3>
-                    <p>Trump ve Biden arasındaki rekabet kızışıyor. Son anketlerde kim önde? İşte detaylar.</p>
-                    <div class="news-meta">
-                        <span><i class="far fa-clock"></i> 3 saat önce</span>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Haber 22 -->
-            <div class="news-card" data-category="dünya" onclick="openNews('haber22')">
-                <img src="https://images.unsplash.com/photo-1549880181-56a44cf4a9a5?w=400" alt="Çin">
-                <div class="news-card-content">
-                    <span class="news-category">Çin</span>
-                    <h3>Çin'den yapay zeka hamlesi: Dünyayı değiştirecek proje</h3>
-                    <p>Çin, yapay zeka alanında ABD ile rekabeti kızıştıracak yeni bir program başlattı.</p>
-                    <div class="news-meta">
-                        <span><i class="far fa-clock"></i> 5 saat önce</span>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Haber 23 -->
-            <div class="news-card" data-category="dünya" onclick="openNews('haber23')">
-                <img src="https://images.unsplash.com/photo-1529260830199-42c24126f198?w=400" alt="Almanya">
-                <div class="news-card-content">
-                    <span class="news-category">Avrupa</span>
-                    <h3>Almanya'da koalisyon görüşmeleri çıkmaza girdi</h3>
-                    <p>Almanya'da hükümet kurma çalışmalarında tıkanıklık yaşanıyor. Erken seçim ihtimali konuşuluyor.</p>
-                    <div class="news-meta">
-                        <span><i class="far fa-clock"></i> 7 saat önce</span>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Haber 24 -->
-            <div class="news-card" data-category="dünya" onclick="openNews('haber24')">
-                <img src="https://images.unsplash.com/photo-1589802829985-817e51171b92?w=400" alt="Gazze">
-                <div class="news-card-content">
-                    <span class="news-category">Orta Doğu</span>
-                    <h3>Gazze'de ateşkes görüşmeleri yeniden başlıyor</h3>
-                    <p>Mısır'ın arabuluculuğunda taraflar masaya oturmaya hazırlanıyor. Son durum ne?</p>
-                    <div class="news-meta">
-                        <span><i class="far fa-clock"></i> 9 saat önce</span>
-                    </div>
-                </div>
-            </div>
         </div>
 
         <!-- VİDEO HABERLER -->
         <div class="video-section">
             <div class="section-title">
-                <h2>🎥 VİDEO HABER</h2>
-                <a href="#" class="view-all">Tüm Videolar →</a>
+                <h2>🎥 BİLDİRİO VİDEO</h2>
+                <a href="https://youtube.com/@bildirio0?si=ALyoKe5zIQ4NuyGH" target="_blank" class="view-all">YouTube Kanalı →</a>
             </div>
             <div class="video-grid">
-                <div class="video-card" onclick="openVideo('video1')">
-                    <img src="https://images.unsplash.com/photo-1529107386315-e1a2ed48a620?w=400" alt="Video">
+                <div class="video-card" onclick="window.open('https://youtube.com/@bildirio0?si=ALyoKe5zIQ4NuyGH', '_blank')">
+                    <img src="https://images.unsplash.com/photo-1589829545856-d10d557cf95f?w=400" alt="Video">
                     <div class="play-button"><i class="fas fa-play"></i></div>
                     <div style="padding: 10px; background: white;">
-                        <h4>Cumhurbaşkanı Erdoğan açıklıyor</h4>
+                        <h4>Ahmet Minguzu olayı özel haber</h4>
                     </div>
                 </div>
-                <div class="video-card" onclick="openVideo('video2')">
-                    <img src="https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=400" alt="Video">
+                <div class="video-card" onclick="window.open('https://youtube.com/@bildirio0?si=ALyoKe5zIQ4NuyGH', '_blank')">
+                    <img src="https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=400" alt="Video">
                     <div class="play-button"><i class="fas fa-play"></i></div>
                     <div style="padding: 10px; background: white;">
-                        <h4>Ekonomi uzmanları yorumluyor</h4>
+                        <h4>Siber saldırı uzmanı anlatıyor</h4>
                     </div>
                 </div>
-                <div class="video-card" onclick="openVideo('video3')">
-                    <img src="https://images.unsplash.com/photo-1579952363873-27f3bade9f55?w=400" alt="Video">
+                <div class="video-card" onclick="window.open('https://youtube.com/@bildirio0?si=ALyoKe5zIQ4NuyGH', '_blank')">
+                    <img src="https://images.unsplash.com/photo-1590283603385-17ffb3a7f29f?w=400" alt="Video">
                     <div class="play-button"><i class="fas fa-play"></i></div>
                     <div style="padding: 10px; background: white;">
-                        <h4>Maçın özeti ve yorumlar</h4>
+                        <h4>İflas eden şirketler dosyası</h4>
                     </div>
                 </div>
             </div>
@@ -1174,124 +1215,6 @@
                 <button>Abone Ol</button>
             </div>
         </div>
-
-        <!-- SAĞLIK HABERLERİ -->
-        <div class="section-title">
-            <h2>🏥 SAĞLIK</h2>
-            <a href="#" class="view-all">Tüm Sağlık Haberleri →</a>
-        </div>
-        <div class="news-grid">
-            <!-- Haber 25 -->
-            <div class="news-card" data-category="sağlık" onclick="openNews('haber25')">
-                <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=400" alt="Sağlık">
-                <div class="news-card-content">
-                    <span class="news-category">Sağlık</span>
-                    <h3>Kanser tedavisinde devrim: Yeni ilaç umut verdi</h3>
-                    <p>Bilim insanları, kanser tedavisinde çığır açacak yeni bir ilaç geliştirdi. Deneyler başarılı oldu.</p>
-                    <div class="news-meta">
-                        <span><i class="far fa-clock"></i> 3 saat önce</span>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Haber 26 -->
-            <div class="news-card" data-category="sağlık" onclick="openNews('haber26')">
-                <img src="https://images.unsplash.com/photo-1584515933487-779824d29309?w=400" alt="Doktor">
-                <div class="news-card-content">
-                    <span class="news-category">Sağlık</span>
-                    <h3>Uzmanlar uyarıyor: Grip vakaları artıyor</h3>
-                    <p>Kış aylarında grip vakaları hızla artıyor. Uzmanlar aşı uyarısında bulundu.</p>
-                    <div class="news-meta">
-                        <span><i class="far fa-clock"></i> 5 saat önce</span>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Haber 27 -->
-            <div class="news-card" data-category="sağlık" onclick="openNews('haber27')">
-                <img src="https://images.unsplash.com/photo-1550831107-1553da8c8464?w=400" alt="Beslenme">
-                <div class="news-card-content">
-                    <span class="news-category">Beslenme</span>
-                    <h3>Sağlıklı yaşam için 10 altın kural</h3>
-                    <p>Diyetisyenlerden sağlıklı yaşam ve beslenme önerileri. Uzun yaşamın sırları.</p>
-                    <div class="news-meta">
-                        <span><i class="far fa-clock"></i> 7 saat önce</span>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Haber 28 -->
-            <div class="news-card" data-category="sağlık" onclick="openNews('haber28')">
-                <img src="https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=400" alt="Uyku">
-                <div class="news-card-content">
-                    <span class="news-category">Sağlık</span>
-                    <h3>Kaliteli uykunun formülü bulundu</h3>
-                    <p>Bilimsel araştırmalar, kaliteli uykunun sırrını ortaya çıkardı. İşte iyi uyku için tüyolar.</p>
-                    <div class="news-meta">
-                        <span><i class="far fa-clock"></i> 9 saat önce</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- MAGAZİN HABERLERİ -->
-        <div class="section-title">
-            <h2>✨ MAGAZİN</h2>
-            <a href="#" class="view-all">Tüm Magazin Haberleri →</a>
-        </div>
-        <div class="news-grid">
-            <!-- Haber 29 -->
-            <div class="news-card" data-category="magazin" onclick="openNews('haber29')">
-                <img src="https://images.unsplash.com/photo-1519699047748-de8e457a634e?w=400" alt="Ünlü">
-                <div class="news-card-content">
-                    <span class="news-category">Magazin</span>
-                    <h3>Ünlü oyuncu evlendi! Düğünde şıklık yarışı</h3>
-                    <p>Ünlü oyuncu, uzun süredir birlikte olduğu sevgilisiyle dünyaevine girdi. Düğüne ünlü akını.</p>
-                    <div class="news-meta">
-                        <span><i class="far fa-clock"></i> 4 saat önce</span>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Haber 30 -->
-            <div class="news-card" data-category="magazin" onclick="openNews('haber30')">
-                <img src="https://images.unsplash.com/photo-1499364615650-ec38552f4f34?w=400" alt="Konser">
-                <div class="news-card-content">
-                    <span class="news-category">Magazin</span>
-                    <h3>Ünlü şarkıcı Harbiye'de coştu</h3>
-                    <p>Ünlü sanatçı, Harbiye Açıkhava'da verdiği konserde binlerce hayranına unutulmaz bir gece yaşattı.</p>
-                    <div class="news-meta">
-                        <span><i class="far fa-clock"></i> 6 saat önce</span>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Haber 31 -->
-            <div class="news-card" data-category="magazin" onclick="openNews('haber31')">
-                <img src="https://images.unsplash.com/photo-1500462918059-b1a0cb512f1d?w=400" alt="Dizi">
-                <div class="news-card-content">
-                    <span class="news-category">Dizi</span>
-                    <h3>Yeni dizi reyting rekoru kırdı</h3>
-                    <p>Kanalın yeni dizisi, ilk bölümüyle reyting listelerinde zirveye oturdu. İşte detaylar.</p>
-                    <div class="news-meta">
-                        <span><i class="far fa-clock"></i> 8 saat önce</span>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Haber 32 -->
-            <div class="news-card" data-category="magazin" onclick="openNews('haber32')">
-                <img src="https://images.unsplash.com/photo-1522869635100-9f4c5e86aa37?w=400" alt="Ödül">
-                <div class="news-card-content">
-                    <span class="news-category">Magazin</span>
-                    <h3>Oscar adayları açıklandı</h3>
-                    <p>Sinema dünyasının en prestijli ödülleri Oscar'da bu yıl adaylar belli oldu. İşte liste.</p>
-                    <div class="news-meta">
-                        <span><i class="far fa-clock"></i> 10 saat önce</span>
-                    </div>
-                </div>
-            </div>
-        </div>
     </div>
 
     <!-- FOOTER -->
@@ -1301,13 +1224,12 @@
                 <div class="footer-col">
                     <h4>Bildirio</h4>
                     <p style="color: #bdc3c7; line-height: 1.6;">Tarafsız, güvenilir ve hızlı haber. Türkiye'nin en güncel haber kaynağı.</p>
-                    <div class="social-icons">
-                        <i class="fab fa-facebook"></i>
-                        <i class="fab fa-twitter"></i>
-                        <i class="fab fa-instagram"></i>
-                        <i class="fab fa-youtube"></i>
-                        <i class="fab fa-tiktok"></i>
-                        <i class="fab fa-linkedin"></i>
+                    <div class="footer-social">
+                        <a href="https://youtube.com/@bildirio0?si=ALyoKe5zIQ4NuyGH" target="_blank"><i class="fab fa-youtube"></i></a>
+                        <a href="https://tiktok.com/@bildirio0" target="_blank"><i class="fab fa-tiktok"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-x-twitter"></i></a>
+                        <a href="#"><i class="fab fa-facebook"></i></a>
                     </div>
                 </div>
                 <div class="footer-col">
@@ -1326,9 +1248,9 @@
                     <ul>
                         <li>Gündem</li>
                         <li>Ekonomi</li>
-                        <li>Teknoloji</li>
+                        <li>Siber Güvenlik</li>
+                        <li>Asayiş</li>
                         <li>Spor</li>
-                        <li>Sağlık</li>
                         <li>Dünya</li>
                     </ul>
                 </div>
@@ -1338,7 +1260,7 @@
                         <li><i class="fas fa-phone"></i> 0212 123 45 67</li>
                         <li><i class="fas fa-envelope"></i> info@bildirio.com</li>
                         <li><i class="fas fa-map-marker"></i> Levent, İstanbul</li>
-                        <li><i class="fas fa-fax"></i> 0212 123 45 68</li>
+                        <li><i class="fab fa-youtube"></i> /@bildirio0</li>
                     </ul>
                 </div>
             </div>
@@ -1384,15 +1306,17 @@
                 }
             });
 
-            // Bölüm başlıklarını göster/gizle (opsiyonel)
+            // Bölüm başlıklarını göster/gizle
             const sections = document.querySelectorAll('.section-title');
             sections.forEach(section => {
                 if(category === 'all') {
                     section.style.display = 'flex';
                 } else {
-                    // İlgili bölümü bul ve göster
                     const sectionText = section.querySelector('h2').textContent.toLowerCase();
-                    if(sectionText.includes(category)) {
+                    if(sectionText.includes(category) || 
+                       (category === 'siber' && sectionText.includes('siber')) ||
+                       (category === 'asayiş' && sectionText.includes('asayiş')) ||
+                       (category === 'ekonomi' && sectionText.includes('şirket'))) {
                         section.style.display = 'flex';
                     } else {
                         section.style.display = 'none';
@@ -1422,11 +1346,6 @@
         function openNews(newsId) {
             alert('Haber detay sayfası açılacak: ' + newsId);
             // Gerçek projede window.location = '/haber/' + newsId
-        }
-
-        // VİDEO AÇ
-        function openVideo(videoId) {
-            alert('Video oynatıcı açılacak: ' + videoId);
         }
 
         // SAYFA YÜKLENİNCE TÜM HABERLERİ GÖSTER
