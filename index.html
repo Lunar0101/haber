@@ -24,102 +24,101 @@
             padding: 0 20px;
         }
 
-        /* BİLDİRİM ÇUBUĞU */
-        .notification-bar {
-            background: linear-gradient(135deg, #ff6b6b, #ff8e8e);
+        /* BİLDİRİM ÇUBUĞU - SON DAKİKA */
+        .breaking-news {
+            background: linear-gradient(135deg, #c41e1e, #8b0000);
             color: white;
             padding: 12px 0;
             position: relative;
-            overflow: hidden;
-            cursor: pointer;
-            transition: all 0.3s;
+            border-bottom: 3px solid #ffd700;
         }
 
-        .notification-bar:hover {
-            background: linear-gradient(135deg, #ff5252, #ff6b6b);
-        }
-
-        .notification-content {
+        .breaking-content {
             display: flex;
             align-items: center;
-            justify-content: center;
             gap: 20px;
-            animation: slideIn 0.5s ease-out;
+            animation: pulseBreaking 2s infinite;
         }
 
-        @keyframes slideIn {
-            from { transform: translateY(-100%); opacity: 0; }
-            to { transform: translateY(0); opacity: 1; }
+        @keyframes pulseBreaking {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.9; }
         }
 
-        .notification-icon {
-            background: white;
-            color: #ff6b6b;
+        .breaking-label {
+            background: #ffd700;
+            color: #000;
+            padding: 5px 15px;
+            border-radius: 30px;
+            font-weight: 800;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .breaking-text {
+            font-weight: 600;
+            font-size: 1.1rem;
+            flex: 1;
+        }
+
+        .breaking-time {
+            font-size: 0.9rem;
+            color: #ffd700;
+        }
+
+        .breaking-close {
+            background: rgba(255,255,255,0.2);
+            border: none;
+            color: white;
             width: 30px;
             height: 30px;
             border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: bold;
-            animation: pulse 2s infinite;
-        }
-
-        @keyframes pulse {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.1); }
-        }
-
-        .notification-text {
-            font-weight: 600;
-            font-size: 1.1rem;
-        }
-
-        .notification-close {
-            position: absolute;
-            right: 20px;
-            top: 50%;
-            transform: translateY(-50%);
-            background: rgba(255,255,255,0.3);
-            border: none;
-            color: white;
-            width: 25px;
-            height: 25px;
-            border-radius: 50%;
             cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 0.9rem;
-        }
-
-        .notification-close:hover {
-            background: rgba(255,255,255,0.5);
+            font-size: 1rem;
         }
 
         /* HEADER */
         .header {
             background: white;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
             position: sticky;
             top: 0;
             z-index: 1000;
         }
 
-        .header-top {
+        .top-bar {
             background: #1a1a1a;
-            color: white;
+            color: #999;
             padding: 8px 0;
-            font-size: 0.9rem;
+            font-size: 0.85rem;
+            border-bottom: 1px solid #333;
         }
 
-        .header-top .container {
+        .top-bar .container {
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
 
-        .header-main {
+        .date-time {
+            color: #ffd700;
+        }
+
+        .weather-widget {
+            background: #333;
+            padding: 4px 15px;
+            border-radius: 20px;
+            color: white;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .weather-widget:hover {
+            background: #444;
+        }
+
+        .main-header {
             padding: 20px 0;
             display: flex;
             justify-content: space-between;
@@ -130,62 +129,74 @@
 
         .logo {
             position: relative;
-            cursor: pointer;
         }
 
         .logo h1 {
-            font-size: 2.5rem;
-            font-weight: 800;
-            background: linear-gradient(135deg, #ff6b6b, #4ecdc4);
+            font-size: 2.8rem;
+            font-weight: 900;
+            background: linear-gradient(135deg, #c41e1e, #1a1a1a);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            letter-spacing: -1px;
+            letter-spacing: -2px;
         }
 
         .logo p {
             color: #666;
-            font-size: 0.9rem;
-            margin-top: 5px;
+            font-size: 0.85rem;
+            letter-spacing: 1px;
         }
 
-        .notification-badge {
+        .live-badge {
             position: absolute;
             top: -5px;
-            right: -15px;
-            background: #ff6b6b;
+            right: -20px;
+            background: #c41e1e;
             color: white;
             font-size: 0.7rem;
-            padding: 2px 6px;
-            border-radius: 10px;
-            animation: bounce 1s infinite;
-        }
-
-        @keyframes bounce {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-3px); }
-        }
-
-        .weather {
-            background: #f0f0f0;
-            padding: 8px 15px;
+            padding: 3px 8px;
             border-radius: 20px;
-            font-size: 0.9rem;
-            cursor: pointer;
+            animation: livePulse 1.5s infinite;
         }
 
-        .weather i {
-            color: #ff6b6b;
-            margin-right: 5px;
+        @keyframes livePulse {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.7; transform: scale(1.05); }
         }
 
-        /* NAVIGASYON */
-        .nav-menu {
+        .social-header {
+            display: flex;
+            gap: 15px;
+        }
+
+        .social-header a {
+            color: #333;
+            font-size: 1.3rem;
+            transition: all 0.3s;
+        }
+
+        .social-header a:hover {
+            transform: translateY(-3px);
+        }
+
+        .social-header .fa-youtube:hover { color: #ff0000; }
+        .social-header .fa-tiktok:hover { color: #000; }
+        .social-header .fa-instagram:hover { color: #e4405f; }
+        .social-header .fa-x-twitter:hover { color: #1da1f2; }
+
+        /* NAVIGASYON - GELİŞMİŞ */
+        .nav-main {
             background: white;
             border-top: 1px solid #eee;
             border-bottom: 1px solid #eee;
         }
 
-        .nav-menu ul {
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-menu {
             display: flex;
             list-style: none;
             gap: 25px;
@@ -194,20 +205,20 @@
         }
 
         .nav-menu li {
-            font-weight: 500;
+            font-weight: 600;
             cursor: pointer;
             color: #333;
             transition: color 0.3s;
             position: relative;
+            font-size: 0.95rem;
         }
 
         .nav-menu li:hover {
-            color: #ff6b6b;
+            color: #c41e1e;
         }
 
         .nav-menu li.active {
-            color: #ff6b6b;
-            font-weight: 600;
+            color: #c41e1e;
         }
 
         .nav-menu li.active::after {
@@ -217,31 +228,101 @@
             left: 0;
             width: 100%;
             height: 3px;
-            background: #ff6b6b;
+            background: #c41e1e;
         }
 
-        /* YENİ HABER ETİKETİ */
-        .new-badge {
-            background: #ff6b6b;
-            color: white;
-            font-size: 0.7rem;
-            padding: 2px 6px;
-            border-radius: 3px;
-            margin-left: 8px;
-            animation: blink 1.5s infinite;
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 20px;
         }
 
-        @keyframes blink {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0.5; }
+        .search-box {
+            background: #f5f5f5;
+            padding: 8px 15px;
+            border-radius: 25px;
+            display: flex;
+            align-items: center;
         }
 
-        /* ANA İÇERİK LAYOUT */
-        .main-layout {
+        .search-box input {
+            border: none;
+            background: none;
+            outline: none;
+            width: 200px;
+            font-size: 0.9rem;
+        }
+
+        .search-box i {
+            color: #999;
+            cursor: pointer;
+        }
+
+        /* ANA LAYOUT - MODERN GRID */
+        .main-grid {
             display: grid;
-            grid-template-columns: 1fr 300px;
+            grid-template-columns: 2fr 1fr;
             gap: 30px;
             margin: 30px 0;
+        }
+
+        /* MANŞET SLIDER */
+        .spotlight {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
+        }
+
+        .spotlight-image {
+            position: relative;
+            height: 400px;
+            overflow: hidden;
+        }
+
+        .spotlight-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 5s;
+        }
+
+        .spotlight:hover .spotlight-image img {
+            transform: scale(1.05);
+        }
+
+        .spotlight-content {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 30px;
+            background: linear-gradient(transparent, rgba(0,0,0,0.8));
+            color: white;
+        }
+
+        .spotlight-category {
+            background: #c41e1e;
+            color: white;
+            padding: 4px 15px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            display: inline-block;
+            margin-bottom: 10px;
+        }
+
+        .spotlight-content h2 {
+            font-size: 2rem;
+            margin-bottom: 10px;
+            cursor: pointer;
+        }
+
+        .spotlight-content p {
+            font-size: 1rem;
+            opacity: 0.9;
+            margin-bottom: 15px;
         }
 
         /* HABER GRID - SOL TARAF */
@@ -249,104 +330,120 @@
             display: grid;
             grid-template-columns: repeat(2, 1fr);
             gap: 25px;
+            margin-bottom: 30px;
         }
 
         .news-card {
             background: white;
             border-radius: 10px;
             overflow: hidden;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
             transition: all 0.3s;
             cursor: pointer;
-            text-decoration: none;
-            color: inherit;
-            display: block;
             position: relative;
-        }
-
-        .news-card.new {
-            border: 2px solid #ff6b6b;
-            animation: highlight 2s ease-out;
-        }
-
-        @keyframes highlight {
-            0% { box-shadow: 0 0 0 0 rgba(255,107,107,0.7); }
-            70% { box-shadow: 0 0 0 10px rgba(255,107,107,0); }
-            100% { box-shadow: 0 0 0 0 rgba(255,107,107,0); }
         }
 
         .news-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+            box-shadow: 0 15px 25px rgba(0,0,0,0.15);
         }
 
-        .news-card img {
+        .card-image {
+            position: relative;
+            height: 180px;
+            overflow: hidden;
+        }
+
+        .card-image img {
             width: 100%;
-            height: 200px;
+            height: 100%;
             object-fit: cover;
+            transition: transform 0.5s;
         }
 
-        .news-card-content {
-            padding: 20px;
+        .news-card:hover .card-image img {
+            transform: scale(1.05);
         }
 
-        .news-category {
-            display: inline-block;
-            background: #ff6b6b;
+        .card-category {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background: #c41e1e;
             color: white;
             padding: 3px 12px;
             border-radius: 3px;
-            font-size: 0.8rem;
+            font-size: 0.7rem;
             font-weight: 600;
-            margin-bottom: 10px;
+            z-index: 1;
         }
 
-        .news-card h3 {
-            font-size: 1.2rem;
-            margin-bottom: 10px;
+        .card-content {
+            padding: 15px;
+        }
+
+        .card-content h3 {
+            font-size: 1.1rem;
+            margin-bottom: 8px;
             line-height: 1.4;
         }
 
-        .news-card p {
+        .card-content p {
             color: #666;
-            font-size: 0.95rem;
+            font-size: 0.85rem;
             line-height: 1.5;
-            margin-bottom: 15px;
+            margin-bottom: 10px;
         }
 
-        .news-meta {
+        .card-meta {
             display: flex;
             gap: 15px;
-            font-size: 0.8rem;
+            font-size: 0.7rem;
             color: #999;
         }
 
-        .news-meta i {
+        .card-meta i {
             margin-right: 3px;
-            color: #ff6b6b;
+            color: #c41e1e;
+        }
+
+        .new-tag {
+            background: #c41e1e;
+            color: white;
+            font-size: 0.6rem;
+            padding: 2px 6px;
+            border-radius: 3px;
+            margin-left: 5px;
+            animation: blink 1.5s infinite;
+        }
+
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.6; }
         }
 
         /* SİDEBAR - SAĞ TARAF */
         .sidebar {
-            background: white;
-            border-radius: 10px;
-            padding: 25px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-            height: fit-content;
-            position: sticky;
-            top: 100px;
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
         }
 
-        .sidebar h3 {
+        .sidebar-widget {
+            background: white;
+            border-radius: 12px;
+            padding: 25px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+
+        .widget-title {
             font-size: 1.3rem;
             margin-bottom: 20px;
             padding-bottom: 10px;
-            border-bottom: 2px solid #ff6b6b;
-            cursor: pointer;
-        }
-
-        .sidebar h3:hover {
-            color: #ff6b6b;
+            border-bottom: 3px solid #c41e1e;
+            display: flex;
+            align-items: center;
+            gap: 10px;
         }
 
         .popular-list {
@@ -361,18 +458,17 @@
             border-bottom: 1px solid #eee;
             cursor: pointer;
             transition: all 0.3s;
-            position: relative;
         }
 
         .popular-item:hover {
             transform: translateX(5px);
-            color: #ff6b6b;
+            color: #c41e1e;
         }
 
         .popular-number {
             width: 30px;
             height: 30px;
-            background: #ff6b6b;
+            background: #c41e1e;
             color: white;
             border-radius: 50%;
             display: flex;
@@ -388,125 +484,101 @@
             font-weight: 500;
         }
 
-        .new-indicator {
-            background: #ff6b6b;
-            color: white;
-            font-size: 0.6rem;
-            padding: 2px 5px;
-            border-radius: 3px;
-            margin-left: 5px;
+        /* BASIN AÇIKLAMASI ÖZEL STİL */
+        .press-release {
+            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+            border-left: 5px solid #c41e1e;
+            padding: 25px;
+            border-radius: 12px;
+            margin: 20px 0;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
         }
 
-        /* SİDEBAR WIDGET */
-        .sidebar-widget {
-            margin-top: 30px;
-        }
-
-        .sidebar-widget h4 {
+        .press-release h3 {
+            color: #c41e1e;
+            font-size: 1.2rem;
             margin-bottom: 15px;
-            color: #333;
-            cursor: pointer;
-        }
-
-        .sidebar-widget h4:hover {
-            color: #ff6b6b;
-        }
-
-        .category-list {
-            list-style: none;
-        }
-
-        .category-list li {
-            padding: 8px 0;
-            border-bottom: 1px dashed #eee;
-            cursor: pointer;
-            transition: color 0.3s;
-        }
-
-        .category-list li:hover {
-            color: #ff6b6b;
-            padding-left: 5px;
-        }
-
-        .category-list li span {
-            float: right;
-            color: #999;
-            font-size: 0.8rem;
-        }
-
-        /* SOSYAL MEDYA */
-        .social-sidebar {
-            margin-top: 30px;
-        }
-
-        .social-sidebar a {
             display: flex;
             align-items: center;
             gap: 10px;
-            padding: 10px;
-            margin-bottom: 10px;
-            border-radius: 5px;
-            color: white;
-            text-decoration: none;
-            transition: opacity 0.3s;
-            cursor: pointer;
         }
 
-        .social-sidebar a:hover {
-            opacity: 0.9;
+        .press-release h3 i {
+            font-size: 1.5rem;
         }
 
-        .social-sidebar .youtube { background: #ff0000; }
-        .social-sidebar .tiktok { background: #000000; }
-        .social-sidebar .instagram { background: linear-gradient(45deg, #f09433, #d62976, #962fbf); }
-        .social-sidebar .twitter { background: #1da1f2; }
-
-        .social-sidebar i {
-            font-size: 1.3rem;
-            width: 30px;
-            text-align: center;
-        }
-
-        /* NEWSLETTER */
-        .newsletter-sidebar {
-            background: #f8f8f8;
-            padding: 20px;
-            border-radius: 5px;
-            margin-top: 30px;
-        }
-
-        .newsletter-sidebar h4 {
-            margin-bottom: 10px;
-            cursor: pointer;
-        }
-
-        .newsletter-sidebar p {
-            font-size: 0.9rem;
+        .press-release .date {
             color: #666;
+            font-size: 0.85rem;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 1px dashed #ccc;
+        }
+
+        .press-release .content {
+            font-size: 0.95rem;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        .press-release .content p {
             margin-bottom: 15px;
         }
 
-        .newsletter-sidebar input {
-            width: 100%;
-            padding: 10px;
-            margin: 10px 0;
-            border: 1px solid #ddd;
-            border-radius: 5px;
+        .press-release .content strong {
+            color: #c41e1e;
         }
 
-        .newsletter-sidebar button {
-            width: 100%;
-            padding: 10px;
-            background: #ff6b6b;
+        .photo-note {
+            background: #fff3cd;
+            border: 1px solid #ffeeba;
+            color: #856404;
+            padding: 10px 15px;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-top: 15px;
+        }
+
+        .photo-note i {
+            font-size: 1.2rem;
+        }
+
+        /* SON DAKİKA BANDI */
+        .ticker-wrap {
+            background: #1a1a1a;
             color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
+            padding: 10px 0;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .ticker {
+            display: flex;
+            animation: ticker 40s linear infinite;
+        }
+
+        .ticker-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 0 30px;
+            white-space: nowrap;
+        }
+
+        .ticker-item span {
+            background: #c41e1e;
+            padding: 2px 8px;
+            border-radius: 3px;
+            font-size: 0.7rem;
             font-weight: 600;
         }
 
-        .newsletter-sidebar button:hover {
-            background: #ff5252;
+        @keyframes ticker {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
         }
 
         /* DETAY SAYFASI */
@@ -520,11 +592,16 @@
             background: white;
             z-index: 2000;
             overflow-y: auto;
-            padding: 40px;
         }
 
         .detail-page.active {
             display: block;
+        }
+
+        .detail-container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 20px;
         }
 
         .detail-header {
@@ -533,15 +610,11 @@
             align-items: center;
             margin-bottom: 30px;
             padding-bottom: 20px;
-            border-bottom: 2px solid #ff6b6b;
-        }
-
-        .detail-header h1 {
-            cursor: pointer;
+            border-bottom: 3px solid #c41e1e;
         }
 
         .close-detail {
-            background: #ff6b6b;
+            background: #c41e1e;
             color: white;
             border: none;
             width: 50px;
@@ -549,51 +622,42 @@
             border-radius: 50%;
             font-size: 1.5rem;
             cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            transition: all 0.3s;
         }
 
-        .detail-content {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .detail-content img {
-            width: 100%;
-            max-height: 500px;
-            object-fit: cover;
-            border-radius: 10px;
-            margin: 20px 0;
+        .close-detail:hover {
+            transform: rotate(90deg);
         }
 
         .detail-content h1 {
             font-size: 2.5rem;
             margin: 20px 0;
+            line-height: 1.3;
         }
 
-        .detail-content .news-meta {
-            font-size: 1rem;
+        .detail-image {
+            width: 100%;
+            max-height: 500px;
+            object-fit: cover;
+            border-radius: 15px;
             margin: 20px 0;
-            padding: 15px 0;
-            border-top: 1px solid #eee;
-            border-bottom: 1px solid #eee;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.2);
         }
 
-        .detail-content p {
+        .detail-text {
             font-size: 1.1rem;
             line-height: 1.8;
-            margin: 20px 0;
             color: #444;
+        }
+
+        .detail-text p {
+            margin: 20px 0;
         }
 
         /* RESPONSIVE */
         @media (max-width: 1024px) {
-            .main-layout {
+            .main-grid {
                 grid-template-columns: 1fr;
-            }
-            .sidebar {
-                position: static;
             }
         }
 
@@ -601,516 +665,433 @@
             .news-grid {
                 grid-template-columns: 1fr;
             }
+            .spotlight-image {
+                height: 300px;
+            }
+            .spotlight-content h2 {
+                font-size: 1.5rem;
+            }
         }
     </style>
 </head>
 <body>
-    <!-- BİLDİRİM ÇUBUĞU - TIKLANINCA AÇILIR -->
-    <div class="notification-bar" id="notificationBar" onclick="openDetail('minguzu')">
-        <div class="container notification-content">
-            <div class="notification-icon">!</div>
-            <div class="notification-text" id="notificationText">🔴 SON DAKİKA: Ahmet Minguzu olayında flaş gelişme! Detaylar için tıkla...</div>
-            <button class="notification-close" onclick="closeNotification(event)">✕</button>
+    <!-- SON DAKİKA ŞERİDİ -->
+    <div class="ticker-wrap">
+        <div class="ticker">
+            <div class="ticker-item"><span>SON DAKİKA</span> Büyükçekmece'de gasp operasyonu! Şüpheliler adli kontrolle serbest</div>
+            <div class="ticker-item"><span>SON DAKİKA</span> Ahmet Minguzu olayında yeni görüntüler ortaya çıktı</div>
+            <div class="ticker-item"><span>SON DAKİKA</span> Türk Telekom'a dev siber saldırı! 50 bin veri sızdırıldı</div>
+            <div class="ticker-item"><span>SON DAKİKA</span> Tekstil devi iflas etti! 3 bin işçi işsiz kaldı</div>
+            <div class="ticker-item"><span>SON DAKİKA</span> Kadıköy'de bıçaklı dehşet: 1 ölü</div>
         </div>
     </div>
 
     <!-- HEADER -->
     <header class="header">
-        <div class="header-top">
+        <div class="top-bar">
             <div class="container">
-                <div onclick="openDetail('takvim')" style="cursor: pointer;"><i class="far fa-calendar"></i> 18 Şubat 2026, Çarşamba</div>
-                <div class="weather" onclick="openDetail('hava')">
-                    <i class="fas fa-map-marker-alt"></i> İstanbul 12°C <i class="fas fa-cloud-sun"></i>
+                <div class="date-time"><i class="far fa-calendar-alt"></i> 26 Şubat 2026, Perşembe - İstanbul</div>
+                <div class="weather-widget" onclick="openDetail('hava')">
+                    <i class="fas fa-map-marker-alt"></i> İstanbul 8°C <i class="fas fa-cloud-rain"></i> %70 yağış
                 </div>
             </div>
         </div>
         
         <div class="container">
-            <div class="header-main">
+            <div class="main-header">
                 <div class="logo" onclick="openDetail('anasayfa')">
                     <h1>Bildirio</h1>
-                    <p>Tarafsız haber, güvenilir kaynak</p>
-                    <span class="notification-badge" id="notificationBadge" onclick="openDetail('yeni')">YENİ</span>
+                    <p>HABERİN ADRESİ • 26 ŞUBAT 2026</p>
+                    <span class="live-badge">CANLI</span>
                 </div>
-                <div style="display: flex; gap: 15px;">
-                    <a href="javascript:void(0)" onclick="openDetail('youtube')" style="color: #ff0000; font-size: 1.5rem;"><i class="fab fa-youtube"></i></a>
-                    <a href="javascript:void(0)" onclick="openDetail('tiktok')" style="color: #000; font-size: 1.5rem;"><i class="fab fa-tiktok"></i></a>
+                <div class="social-header">
+                    <a href="#" onclick="openDetail('youtube')"><i class="fab fa-youtube"></i></a>
+                    <a href="#" onclick="openDetail('tiktok')"><i class="fab fa-tiktok"></i></a>
+                    <a href="#" onclick="openDetail('instagram')"><i class="fab fa-instagram"></i></a>
+                    <a href="#" onclick="openDetail('twitter')"><i class="fab fa-x-twitter"></i></a>
                 </div>
             </div>
         </div>
 
-        <div class="nav-menu">
-            <div class="container">
-                <ul>
-                    <li class="active" onclick="openDetail('anasayfa')">Ana Sayfa</li>
-                    <li onclick="openDetail('gundem')">Gündem</li>
-                    <li onclick="openDetail('ekonomi')">Ekonomi</li>
-                    <li onclick="openDetail('teknoloji')">Teknoloji</li>
-                    <li onclick="openDetail('spor')">Spor</li>
-                    <li onclick="openDetail('saglik')">Sağlık</li>
-                    <li onclick="openDetail('kultur')">Kültür-Sanat</li>
-                    <li onclick="openDetail('dunya')">Dünya</li>
-                    <li onclick="openDetail('bilim')">Bilim</li>
-                    <li onclick="openDetail('magazin')">Magazin</li>
+        <div class="nav-main">
+            <div class="container nav-container">
+                <ul class="nav-menu">
+                    <li class="active" onclick="openDetail('anasayfa')">ANA SAYFA</li>
+                    <li onclick="openDetail('gundem')">GÜNDEM</li>
+                    <li onclick="openDetail('ekonomi')">EKONOMİ</li>
+                    <li onclick="openDetail('teknoloji')">TEKNOLOJİ</li>
+                    <li onclick="openDetail('spor')">SPOR</li>
+                    <li onclick="openDetail('saglik')">SAĞLIK</li>
+                    <li onclick="openDetail('kultur')">KÜLTÜR SANAT</li>
+                    <li onclick="openDetail('dunya')">DÜNYA</li>
+                    <li onclick="openDetail('asayis')">ASAYİŞ</li>
+                    <li onclick="openDetail('bilim')">BİLİM</li>
                 </ul>
+                <div class="nav-right">
+                    <div class="search-box">
+                        <input type="text" placeholder="Haber ara...">
+                        <i class="fas fa-search"></i>
+                    </div>
+                </div>
             </div>
         </div>
     </header>
 
     <!-- ANA İÇERİK -->
     <div class="container">
-        <div class="main-layout">
-            <!-- SOL TARAF - HABER GRİD (TÜMÜ TIKLANABİLİR) -->
-            <div class="news-grid" id="newsGrid">
-                <!-- Haber 1 - Ahmet Minguzu -->
-                <div class="news-card new" onclick="openDetail('minguzu')">
-                    <img src="https://images.unsplash.com/photo-1589829545856-d10d557cf95f?w=400" alt="Ahmet Minguzu">
-                    <div class="news-card-content">
-                        <span class="news-category">Asayiş <span class="new-badge">YENİ</span></span>
-                        <h3>Ahmet Minguzu olayında yeni görüntüler ortaya çıktı!</h3>
-                        <p>Olay anına ait güvenlik kamerası görüntüleri ortaya çıktı. Soruşturma genişliyor.</p>
-                        <div class="news-meta">
-                            <span><i class="far fa-clock"></i> 2 saat önce</span>
-                            <span><i class="far fa-eye"></i> 145K</span>
+        <div class="main-grid">
+            <!-- SOL TARAF - HABERLER -->
+            <div class="content-left">
+                <!-- MANŞET -->
+                <div class="spotlight" onclick="openDetail('minguzu')">
+                    <div class="spotlight-image">
+                        <img src="https://images.unsplash.com/photo-1589829545856-d10d557cf95f?w=800" alt="Manşet Haber">
+                        <div class="spotlight-content">
+                            <span class="spotlight-category">SON DAKİKA</span>
+                            <h2>Ahmet Minguzu olayında flaş gelişme! Yeni görüntüler ortaya çıktı</h2>
+                            <p>Olay anına ait güvenlik kamerası görüntüleri soruşturmayı derinleştirdi. 5 kişi gözaltında.</p>
+                            <div class="card-meta">
+                                <span><i class="far fa-clock"></i> 5 dakika önce</span>
+                                <span><i class="far fa-eye"></i> 245K okunma</span>
+                            </div>
                         </div>
                     </div>
                 </div>
 
-                <!-- Haber 2 - Siber Saldırı -->
-                <div class="news-card new" onclick="openDetail('siber')">
-                    <img src="https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=400" alt="Siber Saldırı">
-                    <div class="news-card-content">
-                        <span class="news-category">Siber Güvenlik <span class="new-badge">YENİ</span></span>
-                        <h3>Türk Telekom'a dev siber saldırı! 50 bin kullanıcının verisi sızdırıldı</h3>
-                        <p>Ulusal siber güvenlik birimleri saldırının kaynağını araştırıyor.</p>
-                        <div class="news-meta">
-                            <span><i class="far fa-clock"></i> 3 saat önce</span>
-                            <span><i class="far fa-eye"></i> 98K</span>
+                <!-- HABER GRİD -->
+                <div class="news-grid">
+                    <!-- Büyükçekmece Gasp (Basın Açıklaması) -->
+                    <div class="news-card" onclick="openDetail('gasp')">
+                        <div class="card-image">
+                            <img src="https://images.unsplash.com/photo-1582139329536-e7284fece509?w=400" alt="Büyükçekmece Gasp">
+                            <span class="card-category">ASAYİŞ</span>
+                        </div>
+                        <div class="card-content">
+                            <h3>Büyükçekmece'de gasp dehşeti! Şüpheliler adli kontrolle serbest <span class="new-tag">YENİ</span></h3>
+                            <p>Sahil kesiminde bir vatandaşa kasten gasp ve darp eylemi gerçekleştiren 2 şüpheli kıskıvrak yakalandı. Mahkeme adli kontrolle serbest bıraktı.</p>
+                            <div class="card-meta">
+                                <span><i class="far fa-clock"></i> 2 saat önce</span>
+                                <span><i class="far fa-eye"></i> 156K</span>
+                            </div>
                         </div>
                     </div>
-                </div>
 
-                <!-- Haber 3 - Şirket Batışı -->
-                <div class="news-card" onclick="openDetail('sirket')">
-                    <img src="https://images.unsplash.com/photo-1590283603385-17ffb3a7f29f?w=400" alt="Şirket İflas">
-                    <div class="news-card-content">
-                        <span class="news-category">Ekonomi</span>
-                        <h3>Ünlü tekstil devi iflas etti! 3 bin kişi işsiz kaldı</h3>
-                        <p>50 yıllık firma ekonomik krize dayanamadı. Borçları 500 milyon TL.</p>
-                        <div class="news-meta">
-                            <span><i class="far fa-clock"></i> 5 saat önce</span>
-                            <span><i class="far fa-eye"></i> 76K</span>
+                    <!-- Siber Saldırı -->
+                    <div class="news-card" onclick="openDetail('siber')">
+                        <div class="card-image">
+                            <img src="https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=400" alt="Siber Saldırı">
+                            <span class="card-category">SİBER GÜVENLİK</span>
+                        </div>
+                        <div class="card-content">
+                            <h3>Türk Telekom'a dev siber saldırı! 50 bin kullanıcının verisi sızdırıldı <span class="new-tag">YENİ</span></h3>
+                            <p>Saldırının kaynağının yurt dışı olduğu değerlendiriliyor. Uzmanlar kullanıcıları uyardı.</p>
+                            <div class="card-meta">
+                                <span><i class="far fa-clock"></i> 3 saat önce</span>
+                                <span><i class="far fa-eye"></i> 98K</span>
+                            </div>
                         </div>
                     </div>
-                </div>
 
-                <!-- Haber 4 - Bıçaklı Saldırı -->
-                <div class="news-card new" onclick="openDetail('bicak')">
-                    <img src="https://images.unsplash.com/photo-1582139329536-e7284fece509?w=400" alt="Bıçaklı Saldırı">
-                    <div class="news-card-content">
-                        <span class="news-category">Asayiş <span class="new-badge">YENİ</span></span>
-                        <h3>Kadıköy'de bıçaklı dehşet! Bir kişi hayatını kaybetti</h3>
-                        <p>İki grup arasında çıkan kavgada bir kişi bıçaklanarak öldürüldü.</p>
-                        <div class="news-meta">
-                            <span><i class="far fa-clock"></i> 6 saat önce</span>
-                            <span><i class="far fa-eye"></i> 82K</span>
+                    <!-- Tekstil Dev İflas -->
+                    <div class="news-card" onclick="openDetail('sirket')">
+                        <div class="card-image">
+                            <img src="https://images.unsplash.com/photo-1590283603385-17ffb3a7f29f?w=400" alt="İflas">
+                            <span class="card-category">EKONOMİ</span>
+                        </div>
+                        <div class="card-content">
+                            <h3>50 yıllık tekstil devi iflas etti! 3 bin kişi işsiz kaldı</h3>
+                            <p>500 milyon TL borçla battı. İşçiler fabrika önünde eylem yaptı.</p>
+                            <div class="card-meta">
+                                <span><i class="far fa-clock"></i> 5 saat önce</span>
+                                <span><i class="far fa-eye"></i> 76K</span>
+                            </div>
                         </div>
                     </div>
-                </div>
 
-                <!-- Haber 5 - Kripto Borsası -->
-                <div class="news-card" onclick="openDetail('kripto')">
-                    <img src="https://images.unsplash.com/photo-1621501011942-8fc7fe1e1e7d?w=400" alt="Kripto">
-                    <div class="news-card-content">
-                        <span class="news-category">Ekonomi</span>
-                        <h3>Büyük kripto borsası çöktü! 2 milyar dolar buharlaştı</h3>
-                        <p>Siber saldırıya uğrayan borsa tüm işlemleri durdurdu.</p>
-                        <div class="news-meta">
-                            <span><i class="far fa-clock"></i> 8 saat önce</span>
-                            <span><i class="far fa-eye"></i> 112K</span>
+                    <!-- Bıçaklı Saldırı -->
+                    <div class="news-card" onclick="openDetail('bicak')">
+                        <div class="card-image">
+                            <img src="https://images.unsplash.com/photo-1517433367423-c7e5b0f35086?w=400" alt="Bıçaklı Saldırı">
+                            <span class="card-category">ASAYİŞ</span>
+                        </div>
+                        <div class="card-content">
+                            <h3>Kadıköy'de bıçaklı dehşet: 1 ölü, 3 yaralı <span class="new-tag">YENİ</span></h3>
+                            <p>İki grup arasında çıkan kavgada bir kişi hayatını kaybetti. Polis olayla ilgili soruşturma başlattı.</p>
+                            <div class="card-meta">
+                                <span><i class="far fa-clock"></i> 6 saat önce</span>
+                                <span><i class="far fa-eye"></i> 82K</span>
+                            </div>
                         </div>
                     </div>
-                </div>
 
-                <!-- Haber 6 - Meclis -->
-                <div class="news-card new" onclick="openDetail('meclis')">
-                    <img src="https://images.unsplash.com/photo-1541872703-74c5e44368f9?w=400" alt="Meclis">
-                    <div class="news-card-content">
-                        <span class="news-category">Siyaset <span class="new-badge">YENİ</span></span>
-                        <h3>TBMM'de bütçe görüşmeleri başladı</h3>
-                        <p>2026 yılı bütçe görüşmeleri TBMM Genel Kurulu'nda başladı.</p>
-                        <div class="news-meta">
-                            <span><i class="far fa-clock"></i> 2 saat önce</span>
-                            <span><i class="far fa-eye"></i> 45K</span>
+                    <!-- Kripto Borsası -->
+                    <div class="news-card" onclick="openDetail('kripto')">
+                        <div class="card-image">
+                            <img src="https://images.unsplash.com/photo-1621501011942-8fc7fe1e1e7d?w=400" alt="Kripto">
+                            <span class="card-category">EKONOMİ</span>
+                        </div>
+                        <div class="card-content">
+                            <h3>Büyük kripto borsası çöktü! 2 milyar dolar buharlaştı</h3>
+                            <p>Siber saldırıya uğrayan borsa tüm işlemleri durdurdu.</p>
+                            <div class="card-meta">
+                                <span><i class="far fa-clock"></i> 8 saat önce</span>
+                                <span><i class="far fa-eye"></i> 112K</span>
+                            </div>
                         </div>
                     </div>
-                </div>
 
-                <!-- Haber 7 - Faiz Kararı -->
-                <div class="news-card" onclick="openDetail('faiz')">
-                    <img src="https://images.unsplash.com/photo-1582794543139-8ac9cb0f7b11?w=400" alt="Merkez Bankası">
-                    <div class="news-card-content">
-                        <span class="news-category">Ekonomi</span>
-                        <h3>Merkez Bankası'ndan faiz kararı</h3>
-                        <p>Merkez Bankası PPK toplantısında faiz oranını yüzde 45'te sabit tuttu.</p>
-                        <div class="news-meta">
-                            <span><i class="far fa-clock"></i> 4 saat önce</span>
-                            <span><i class="far fa-eye"></i> 67K</span>
+                    <!-- Meclis -->
+                    <div class="news-card" onclick="openDetail('meclis')">
+                        <div class="card-image">
+                            <img src="https://images.unsplash.com/photo-1541872703-74c5e44368f9?w=400" alt="Meclis">
+                            <span class="card-category">SİYASET</span>
+                        </div>
+                        <div class="card-content">
+                            <h3>TBMM'de bütçe görüşmeleri başladı <span class="new-tag">YENİ</span></h3>
+                            <p>2026 yılı bütçe görüşmeleri TBMM Genel Kurulu'nda başladı.</p>
+                            <div class="card-meta">
+                                <span><i class="far fa-clock"></i> 2 saat önce</span>
+                                <span><i class="far fa-eye"></i> 45K</span>
+                            </div>
                         </div>
                     </div>
-                </div>
 
-                <!-- Haber 8 - TOGG -->
-                <div class="news-card new" onclick="openDetail('togg')">
-                    <img src="https://images.unsplash.com/photo-1581091226033-d5c48150dbaa?w=400" alt="TOGG">
-                    <div class="news-card-content">
-                        <span class="news-category">Teknoloji <span class="new-badge">YENİ</span></span>
-                        <h3>TOGG'un yeni modeli tanıtıldı</h3>
-                        <p>Yerli elektrikli otomobil TOGG'un SUV modeli görücüye çıktı.</p>
-                        <div class="news-meta">
-                            <span><i class="far fa-clock"></i> 6 saat önce</span>
-                            <span><i class="far fa-eye"></i> 89K</span>
+                    <!-- Faiz Kararı -->
+                    <div class="news-card" onclick="openDetail('faiz')">
+                        <div class="card-image">
+                            <img src="https://images.unsplash.com/photo-1582794543139-8ac9cb0f7b11?w=400" alt="Merkez Bankası">
+                            <span class="card-category">EKONOMİ</span>
+                        </div>
+                        <div class="card-content">
+                            <h3>Merkez Bankası'ndan faiz kararı</h3>
+                            <p>PPK toplantısında faiz oranı yüzde 45'te sabit tutuldu.</p>
+                            <div class="card-meta">
+                                <span><i class="far fa-clock"></i> 4 saat önce</span>
+                                <span><i class="far fa-eye"></i> 67K</span>
+                            </div>
                         </div>
                     </div>
-                </div>
 
-                <!-- Haber 9 - iPhone -->
-                <div class="news-card" onclick="openDetail('iphone')">
-                    <img src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=400" alt="iPhone">
-                    <div class="news-card-content">
-                        <span class="news-category">Teknoloji</span>
-                        <h3>iPhone 17 hakkında yeni sızıntılar</h3>
-                        <p>Apple'ın yeni amiral gemisinin kamera özellikleri sızdırıldı.</p>
-                        <div class="news-meta">
-                            <span><i class="far fa-clock"></i> 10 saat önce</span>
-                            <span><i class="far fa-eye"></i> 123K</span>
+                    <!-- TOGG -->
+                    <div class="news-card" onclick="openDetail('togg')">
+                        <div class="card-image">
+                            <img src="https://images.unsplash.com/photo-1581091226033-d5c48150dbaa?w=400" alt="TOGG">
+                            <span class="card-category">TEKNOLOJİ</span>
+                        </div>
+                        <div class="card-content">
+                            <h3>TOGG'un yeni modeli tanıtıldı <span class="new-tag">YENİ</span></h3>
+                            <p>Yerli elektrikli otomobilin SUV modeli görücüye çıktı.</p>
+                            <div class="card-meta">
+                                <span><i class="far fa-clock"></i> 6 saat önce</span>
+                                <span><i class="far fa-eye"></i> 89K</span>
+                            </div>
                         </div>
                     </div>
-                </div>
 
-                <!-- Haber 10 - NASA -->
-                <div class="news-card" onclick="openDetail('nasa')">
-                    <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=400" alt="NASA">
-                    <div class="news-card-content">
-                        <span class="news-category">Bilim</span>
-                        <h3>NASA'dan Mars keşfinde çığır açan buluş</h3>
-                        <p>Perseverance aracı Mars'ta organik moleküller keşfetti.</p>
-                        <div class="news-meta">
-                            <span><i class="far fa-clock"></i> 12 saat önce</span>
-                            <span><i class="far fa-eye"></i> 67K</span>
+                    <!-- iPhone -->
+                    <div class="news-card" onclick="openDetail('iphone')">
+                        <div class="card-image">
+                            <img src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=400" alt="iPhone">
+                            <span class="card-category">TEKNOLOJİ</span>
+                        </div>
+                        <div class="card-content">
+                            <h3>iPhone 17 hakkında yeni sızıntılar</h3>
+                            <p>Apple'ın yeni amiral gemisinin özellikleri sızdırıldı.</p>
+                            <div class="card-meta">
+                                <span><i class="far fa-clock"></i> 10 saat önce</span>
+                                <span><i class="far fa-eye"></i> 123K</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- NASA -->
+                    <div class="news-card" onclick="openDetail('nasa')">
+                        <div class="card-image">
+                            <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=400" alt="NASA">
+                            <span class="card-category">BİLİM</span>
+                        </div>
+                        <div class="card-content">
+                            <h3>NASA'dan Mars keşfinde çığır açan buluş</h3>
+                            <p>Perseverance aracı Mars'ta organik moleküller keşfetti.</p>
+                            <div class="card-meta">
+                                <span><i class="far fa-clock"></i> 12 saat önce</span>
+                                <span><i class="far fa-eye"></i> 67K</span>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <!-- SAĞ TARAF - SİDEBAR (TÜMÜ TIKLANABİLİR) -->
+            <!-- SAĞ TARAF - SİDEBAR -->
             <div class="sidebar">
-                <h3 onclick="openDetail('cokokunanlar')">📊 ÇOK OKUNANLAR</h3>
-                <div class="popular-list">
-                    <div class="popular-item" onclick="openDetail('minguzu')">
-                        <div class="popular-number">1</div>
-                        <h4>Ahmet Minguzu'da flaş gelişme <span class="new-indicator">YENİ</span></h4>
+                <!-- BASIN AÇIKLAMASI (ÖZEL KUTU) -->
+                <div class="press-release" onclick="openDetail('gasp')">
+                    <h3><i class="fas fa-bullhorn"></i> BASIN AÇIKLAMASI</h3>
+                    <div class="date">26 Şubat 2026 - İstanbul Emniyet Müdürlüğü</div>
+                    <div class="content">
+                        <p><strong>BÜYÜKÇEKMECE SAHİLİNDE GERÇEKLEŞEN GASP OLAYI HAKKINDA</strong></p>
+                        <p><strong>Konu:</strong> Kasten Gasp ve darp - Yakalama Operasyonu</p>
+                        <p>İstanbul Emniyet Müdürlüğü birimlerince yürütülen çalışmalar kapsamında; Büyükçekmece sahil bölgesinde meydana gelen "Kasten Gasp" (Yağma) olayı ile ilgili...</p>
+                        <p><strong>Müdahale ve Yakalama:</strong> Olayın ihbar edilmesi üzerine bölgeye sevk edilen emniyet ekiplerimiz, şüphelileri kıskıvrak yakalayarak gözaltına aldı. Gasp edilen eşyalar sahibine teslim edildi.</p>
+                        <p><strong>Adli Süreç:</strong> Şüpheliler adliyeye sevk edilmiş, mahkeme tarafından <strong>adli kontrol şartıyla serbest bırakılmalarına</strong> karar verilmiştir.</p>
                     </div>
-                    <div class="popular-item" onclick="openDetail('siber')">
-                        <div class="popular-number">2</div>
-                        <h4>Siber saldırı faciası <span class="new-indicator">YENİ</span></h4>
-                    </div>
-                    <div class="popular-item" onclick="openDetail('meclis')">
-                        <div class="popular-number">3</div>
-                        <h4>Meclis'te kavga çıktı <span class="new-indicator">YENİ</span></h4>
-                    </div>
-                    <div class="popular-item" onclick="openDetail('bicak')">
-                        <div class="popular-number">4</div>
-                        <h4>Kadıköy'de bıçaklı saldırı <span class="new-indicator">YENİ</span></h4>
-                    </div>
-                    <div class="popular-item" onclick="openDetail('togg')">
-                        <div class="popular-number">5</div>
-                        <h4>TOGG tanıtıldı <span class="new-indicator">YENİ</span></h4>
-                    </div>
-                    <div class="popular-item" onclick="openDetail('sirket')">
-                        <div class="popular-number">6</div>
-                        <h4>Tekstil devi battı</h4>
-                    </div>
-                    <div class="popular-item" onclick="openDetail('kripto')">
-                        <div class="popular-number">7</div>
-                        <h4>Kripto borsası çöktü</h4>
-                    </div>
-                    <div class="popular-item" onclick="openDetail('faiz')">
-                        <div class="popular-number">8</div>
-                        <h4>Faiz kararı açıklandı</h4>
+                    <div class="photo-note">
+                        <i class="fas fa-camera-slash"></i>
+                        <strong>Not:</strong> Olay anına ait fotoğraflar soruşturma kapsamında olduğu için basına sızdırılmamıştır. Görüntüler mahremiyet gereği paylaşılamamaktadır.
                     </div>
                 </div>
 
+                <!-- ÇOK OKUNANLAR -->
                 <div class="sidebar-widget">
-                    <h4 onclick="openDetail('kategoriler')">📌 KATEGORİLER</h4>
-                    <ul class="category-list">
-                        <li onclick="openDetail('gundem')"><span>45</span> Gündem <span class="new-indicator" style="float: none; margin-left: 5px;">+3</span></li>
-                        <li onclick="openDetail('ekonomi')"><span>32</span> Ekonomi <span class="new-indicator" style="float: none; margin-left: 5px;">+2</span></li>
-                        <li onclick="openDetail('teknoloji')"><span>28</span> Teknoloji <span class="new-indicator" style="float: none; margin-left: 5px;">+1</span></li>
-                        <li onclick="openDetail('spor')"><span>24</span> Spor</li>
-                        <li onclick="openDetail('asayis')"><span>18</span> Asayiş <span class="new-indicator" style="float: none; margin-left: 5px;">+2</span></li>
-                        <li onclick="openDetail('siber')"><span>15</span> Siber Güvenlik <span class="new-indicator" style="float: none; margin-left: 5px;">+1</span></li>
+                    <h3 class="widget-title"><i class="fas fa-chart-line" style="color: #c41e1e;"></i> ÇOK OKUNANLAR</h3>
+                    <div class="popular-list">
+                        <div class="popular-item" onclick="openDetail('gasp')">
+                            <div class="popular-number">1</div>
+                            <h4>Büyükçekmece'de gasp dehşeti <span class="new-tag">YENİ</span></h4>
+                        </div>
+                        <div class="popular-item" onclick="openDetail('minguzu')">
+                            <div class="popular-number">2</div>
+                            <h4>Ahmet Minguzu'da flaş gelişme <span class="new-tag">YENİ</span></h4>
+                        </div>
+                        <div class="popular-item" onclick="openDetail('siber')">
+                            <div class="popular-number">3</div>
+                            <h4>Siber saldırı faciası <span class="new-tag">YENİ</span></h4>
+                        </div>
+                        <div class="popular-item" onclick="openDetail('bicak')">
+                            <div class="popular-number">4</div>
+                            <h4>Kadıköy'de bıçaklı saldırı <span class="new-tag">YENİ</span></h4>
+                        </div>
+                        <div class="popular-item" onclick="openDetail('sirket')">
+                            <div class="popular-number">5</div>
+                            <h4>Tekstil devi battı, 3 bin işsiz</h4>
+                        </div>
+                        <div class="popular-item" onclick="openDetail('kripto')">
+                            <div class="popular-number">6</div>
+                            <h4>Kripto borsası çöktü</h4>
+                        </div>
+                        <div class="popular-item" onclick="openDetail('togg')">
+                            <div class="popular-number">7</div>
+                            <h4>TOGG'un yeni modeli tanıtıldı</h4>
+                        </div>
+                        <div class="popular-item" onclick="openDetail('meclis')">
+                            <div class="popular-number">8</div>
+                            <h4>TBMM'de bütçe krizi</h4>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- KATEGORİLER -->
+                <div class="sidebar-widget">
+                    <h3 class="widget-title"><i class="fas fa-tags" style="color: #c41e1e;"></i> KATEGORİLER</h3>
+                    <ul class="popular-list">
+                        <li class="popular-item" onclick="openDetail('gundem')">
+                            <span class="popular-number">45</span>
+                            <h4>Gündem <span class="new-tag">+3</span></h4>
+                        </li>
+                        <li class="popular-item" onclick="openDetail('ekonomi')">
+                            <span class="popular-number">32</span>
+                            <h4>Ekonomi <span class="new-tag">+2</span></h4>
+                        </li>
+                        <li class="popular-item" onclick="openDetail('asayis')">
+                            <span class="popular-number">28</span>
+                            <h4>Asayiş <span class="new-tag">+5</span></h4>
+                        </li>
+                        <li class="popular-item" onclick="openDetail('teknoloji')">
+                            <span class="popular-number">24</span>
+                            <h4>Teknoloji <span class="new-tag">+2</span></h4>
+                        </li>
+                        <li class="popular-item" onclick="openDetail('spor')">
+                            <span class="popular-number">18</span>
+                            <h4>Spor</h4>
+                        </li>
+                        <li class="popular-item" onclick="openDetail('bilim')">
+                            <span class="popular-number">15</span>
+                            <h4>Bilim <span class="new-tag">+1</span></h4>
+                        </li>
                     </ul>
                 </div>
 
-                <div class="social-sidebar">
-                    <h4 onclick="openDetail('sosyalmedya')">📱 BİZİ TAKİP EDİN</h4>
-                    <a href="javascript:void(0)" onclick="openDetail('youtube')" class="youtube">
-                        <i class="fab fa-youtube"></i> YouTube
-                    </a>
-                    <a href="javascript:void(0)" onclick="openDetail('tiktok')" class="tiktok">
-                        <i class="fab fa-tiktok"></i> TikTok
-                    </a>
-                    <a href="javascript:void(0)" onclick="openDetail('instagram')" class="instagram">
-                        <i class="fab fa-instagram"></i> Instagram
-                    </a>
-                    <a href="javascript:void(0)" onclick="openDetail('twitter')" class="twitter">
-                        <i class="fab fa-x-twitter"></i> X (Twitter)
-                    </a>
-                </div>
-
-                <div class="newsletter-sidebar">
-                    <h4 onclick="openDetail('bildirim')">📧 YENİ HABERLER</h4>
-                    <p>Bildirimleri aç, yeni haberlerden anında haberdar ol!</p>
-                    <input type="email" placeholder="E-posta adresiniz" id="newsEmail" onclick="event.stopPropagation()">
-                    <button onclick="subscribeNews(event)">Bildirimleri Aç</button>
+                <!-- NEWSLETTER -->
+                <div class="sidebar-widget">
+                    <h3 class="widget-title"><i class="fas fa-bell" style="color: #c41e1e;"></i> BİLDİRİMLERİ AÇ</h3>
+                    <p style="color: #666; margin-bottom: 15px;">Gelişmeler anında cebinize gelsin.</p>
+                    <input type="email" placeholder="E-posta adresiniz" style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 8px; margin-bottom: 10px;">
+                    <button style="width: 100%; padding: 12px; background: #c41e1e; color: white; border: none; border-radius: 8px; font-weight: 600; cursor: pointer;">ABONE OL</button>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- DETAY SAYFALARI (TÜM HABERLER İÇİN) -->
+    <!-- DETAY SAYFALARI -->
+    <!-- Gasp Olayı Detay (Basın Açıklaması) -->
+    <div id="detail-gasp" class="detail-page">
+        <div class="detail-container">
+            <div class="detail-header">
+                <h1 onclick="openDetail('anasayfa')" style="cursor: pointer;">Bildirio</h1>
+                <button class="close-detail" onclick="closeDetail()">✕</button>
+            </div>
+            <div class="detail-content">
+                <span class="card-category" style="position: static; display: inline-block;">ASAYİŞ / RESMİ AÇIKLAMA</span>
+                <h1>Büyükçekmece Sahili'nde gasp operasyonu: 2 gözaltı, adli kontrol kararı</h1>
+                <div class="card-meta" style="font-size: 1rem; margin: 20px 0;">
+                    <span><i class="far fa-clock"></i> 26 Şubat 2026, 10:23</span>
+                    <span><i class="far fa-eye"></i> 156.234 okunma</span>
+                    <span><i class="far fa-comment"></i> 1.876 yorum</span>
+                </div>
+                
+                <div style="background: #f8f9fa; border-left: 5px solid #c41e1e; padding: 25px; margin: 30px 0; border-radius: 10px;">
+                    <h3 style="color: #c41e1e; margin-bottom: 15px;"><i class="fas fa-bullhorn"></i> BASIN AÇIKLAMASI</h3>
+                    <p style="font-weight: 600; margin-bottom: 10px;">Tarih: 26 Şubat 2026</p>
+                    <p style="font-weight: 600; margin-bottom: 20px;">Konu: Kasten Gasp ve darp - Yakalama Operasyonu</p>
+                    
+                    <p>İstanbul Emniyet Müdürlüğü birimlerince yürütülen çalışmalar kapsamında; Büyükçekmece sahil bölgesinde meydana gelen "Kasten Gasp" (Yağma) olayı ile ilgili aşağıdaki bilgilendirmenin yapılmasına gerek duyulmuştur:</p>
+                    
+                    <h4 style="margin: 20px 0 10px; color: #333;">Olayın Gelişimi</h4>
+                    <p>Müşteki beyanları ve çevre incelemeleri neticesinde; biri kimliği henüz belirlenemeyen, diğeri ise eşkal bilgileri üzerinden yapılan çalışmalarla kimliği E*** ***** olduğu tespit edilen iki şahıs tarafından, bir vatandaşımıza yönelik kasten gasp eylemi gerçekleştirilmiştir.</p>
+                    
+                    <h4 style="margin: 20px 0 10px; color: #333;">Müdahale ve Yakalama</h4>
+                    <p>Olayın ihbar edilmesi üzerine bölgeye sevk edilen emniyet ekiplerimizin hızlı ve koordineli çalışmaları sonucunda, şüpheliler kaçış güzergahları üzerinde kısa süre içerisinde kıskıvrak yakalanarak gözaltına alınmıştır. Şüphelilerin üzerinde yapılan aramalarda gasp edilen eşyalara el konulmuş ve sahibine teslim süreci başlatılmıştır.</p>
+                    
+                    <h4 style="margin: 20px 0 10px; color: #333;">Adli Süreç</h4>
+                    <p>Gözaltına alınan şahıslar, emniyetteki ifade işlemlerinin tamamlanmasının ardından mevcutlu olarak adliyeye sevk edilmiştir. Cumhuriyet Savcılığı tarafından alınan ifadeleri takiben mahkemeye sevk edilen şüpheliler hakkında;</p>
+                    <p>Yapılan yargılama ve delil durumu göz önünde bulundurularak, <strong>Adli kontrol şartıyla (takipli serbestlik) serbest bırakılmalarına</strong> karar verilmiştir.</p>
+                    
+                    <div class="photo-note" style="margin-top: 30px;">
+                        <i class="fas fa-camera-slash"></i>
+                        <strong>Fotoğraflar basına sızdırılmamıştır:</strong> Olay anına ait görüntüler soruşturma kapsamında olup, mağdurun mahremiyeti ve soruşturmanın gizliliği sebebiyle basınla paylaşılmamıştır.
+                    </div>
+                </div>
+                
+                <p style="font-size: 1rem; color: #666; margin-top: 20px;"><i class="fas fa-info-circle"></i> Haber merkezi - Son güncelleme: 26 Şubat 2026, 11:45</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Diğer detay sayfaları kısaltıldı - aynı mantıkla devam ediyor -->
     <div id="detail-minguzu" class="detail-page">
-        <div class="detail-header">
-            <h1 onclick="openDetail('anasayfa')">Bildirio</h1>
-            <button class="close-detail" onclick="closeDetail()">✕</button>
-        </div>
-        <div class="detail-content">
-            <span class="news-category">Asayiş</span>
-            <h1>Ahmet Minguzu olayında yeni görüntüler ortaya çıktı! İşte detaylar</h1>
-            <div class="news-meta">
-                <span><i class="far fa-clock"></i> 18 Şubat 2026, 14:23</span>
-                <span><i class="far fa-eye"></i> 145.234 okunma</span>
-                <span><i class="far fa-comment"></i> 1.245 yorum</span>
+        <div class="detail-container">
+            <div class="detail-header">
+                <h1 onclick="openDetail('anasayfa')" style="cursor: pointer;">Bildirio</h1>
+                <button class="close-detail" onclick="closeDetail()">✕</button>
             </div>
-            <img src="https://images.unsplash.com/photo-1589829545856-d10d557cf95f?w=800" alt="Ahmet Minguzu">
-            <p>Ahmet Minguzu olayıyla ilgili soruşturma genişliyor. Güvenlik kamerası görüntülerinde daha önce fark edilmeyen detaylar ortaya çıktı. Uzmanlar görüntüleri mercek altına aldı.</p>
-            <p>Olayın aydınlatılması için çalışmalar devam ediyor. Polis ekipleri yeni tanıkların ifadelerine başvurdu. Soruşturma kapsamında 5 kişi gözaltına alındı.</p>
-            <p>Avukatı yaptığı açıklamada, "Adaletin tecelli edeceğine inanıyoruz" dedi.</p>
-        </div>
-    </div>
-
-    <div id="detail-siber" class="detail-page">
-        <div class="detail-header">
-            <h1 onclick="openDetail('anasayfa')">Bildirio</h1>
-            <button class="close-detail" onclick="closeDetail()">✕</button>
-        </div>
-        <div class="detail-content">
-            <span class="news-category">Siber Güvenlik</span>
-            <h1>Türk Telekom'a dev siber saldırı! 50 bin kullanıcının verisi sızdırıldı</h1>
-            <div class="news-meta">
-                <span><i class="far fa-clock"></i> 18 Şubat 2026, 13:15</span>
-                <span><i class="far fa-eye"></i> 98.456 okunma</span>
-                <span><i class="far fa-comment"></i> 876 yorum</span>
+            <div class="detail-content">
+                <span class="card-category">ASAYİŞ</span>
+                <h1>Ahmet Minguzu olayında yeni görüntüler ortaya çıktı! İşte detaylar</h1>
+                <div class="card-meta" style="font-size: 1rem; margin: 20px 0;">
+                    <span><i class="far fa-clock"></i> 26 Şubat 2026, 14:23</span>
+                    <span><i class="far fa-eye"></i> 245.234 okunma</span>
+                </div>
+                <img src="https://images.unsplash.com/photo-1589829545856-d10d557cf95f?w=800" alt="Ahmet Minguzu" class="detail-image">
+                <div class="detail-text">
+                    <p>Ahmet Minguzu olayıyla ilgili soruşturma genişliyor. Güvenlik kamerası görüntülerinde daha önce fark edilmeyen detaylar ortaya çıktı. Uzmanlar görüntüleri mercek altına aldı.</p>
+                    <p>Olayın aydınlatılması için çalışmalar devam ediyor. Polis ekipleri yeni tanıkların ifadelerine başvurdu. Soruşturma kapsamında 5 kişi gözaltına alındı.</p>
+                    <p>Avukatı yaptığı açıklamada, "Adaletin tecelli edeceğine inanıyoruz" dedi.</p>
+                </div>
             </div>
-            <img src="https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=800" alt="Siber Saldırı">
-            <p>Türk Telekom'un sunucularına yönelik gerçekleştirilen siber saldırıda 50 bin kullanıcının kişisel verilerinin sızdırıldığı belirlendi.</p>
-            <p>Saldırının kaynağının yurt dışı olduğu değerlendiriliyor. Uzmanlar, kullanıcıların şifrelerini değiştirmeleri konusunda uyarıda bulundu.</p>
-            <p>Türk Telekom'dan yapılan açıklamada, "Saldırı tespit edilmiş ve gerekli önlemler alınmıştır" denildi.</p>
-        </div>
-    </div>
-
-    <div id="detail-sirket" class="detail-page">
-        <div class="detail-header">
-            <h1 onclick="openDetail('anasayfa')">Bildirio</h1>
-            <button class="close-detail" onclick="closeDetail()">✕</button>
-        </div>
-        <div class="detail-content">
-            <span class="news-category">Ekonomi</span>
-            <h1>Ünlü tekstil devi iflas etti! 3 bin kişi işsiz kaldı</h1>
-            <div class="news-meta">
-                <span><i class="far fa-clock"></i> 18 Şubat 2026, 11:30</span>
-                <span><i class="far fa-eye"></i> 76.234 okunma</span>
-                <span><i class="far fa-comment"></i> 543 yorum</span>
-            </div>
-            <img src="https://images.unsplash.com/photo-1590283603385-17ffb3a7f29f?w=800" alt="İflas">
-            <p>50 yıllık tekstil firması ekonomik krize dayanamayarak iflas bayrağını çekti. 3 bin çalışan işsiz kaldı.</p>
-            <p>Firmanın toplam borcunun 500 milyon TL olduğu açıklandı. Alacaklılar mağdur durumda.</p>
-            <p>İşsiz kalan işçiler fabrika önünde toplanarak eylem yaptı.</p>
-        </div>
-    </div>
-
-    <div id="detail-bicak" class="detail-page">
-        <div class="detail-header">
-            <h1 onclick="openDetail('anasayfa')">Bildirio</h1>
-            <button class="close-detail" onclick="closeDetail()">✕</button>
-        </div>
-        <div class="detail-content">
-            <span class="news-category">Asayiş</span>
-            <h1>Kadıköy'de bıçaklı dehşet! Bir kişi hayatını kaybetti</h1>
-            <div class="news-meta">
-                <span><i class="far fa-clock"></i> 18 Şubat 2026, 10:45</span>
-                <span><i class="far fa-eye"></i> 82.156 okunma</span>
-                <span><i class="far fa-comment"></i> 654 yorum</span>
-            </div>
-            <img src="https://images.unsplash.com/photo-1582139329536-e7284fece509?w=800" alt="Bıçaklı Saldırı">
-            <p>Kadıköy'de iki grup arasında çıkan kavgada bir kişi bıçaklanarak hayatını kaybetti. Polis olayla ilgili soruşturma başlattı.</p>
-            <p>Görgü tanıkları, olayın aniden çıktığını ve kısa sürede büyüdüğünü belirtti.</p>
-            <p>Şüphelilerin yakalanması için çalışmalar devam ediyor.</p>
-        </div>
-    </div>
-
-    <div id="detail-kripto" class="detail-page">
-        <div class="detail-header">
-            <h1 onclick="openDetail('anasayfa')">Bildirio</h1>
-            <button class="close-detail" onclick="closeDetail()">✕</button>
-        </div>
-        <div class="detail-content">
-            <span class="news-category">Ekonomi</span>
-            <h1>Büyük kripto borsası çöktü! 2 milyar dolar buharlaştı</h1>
-            <div class="news-meta">
-                <span><i class="far fa-clock"></i> 18 Şubat 2026, 09:20</span>
-                <span><i class="far fa-eye"></i> 112.789 okunma</span>
-                <span><i class="far fa-comment"></i> 987 yorum</span>
-            </div>
-            <img src="https://images.unsplash.com/photo-1621501011942-8fc7fe1e1e7d?w=800" alt="Kripto">
-            <p>Dünyanın en büyük kripto borsalarından biri siber saldırıya uğradı ve tüm işlemleri durdurdu. 2 milyar dolarlık varlık buharlaştı.</p>
-            <p>Borsa yönetimi, kullanıcıların mağduriyetinin giderileceğini açıkladı.</p>
-        </div>
-    </div>
-
-    <div id="detail-meclis" class="detail-page">
-        <div class="detail-header">
-            <h1 onclick="openDetail('anasayfa')">Bildirio</h1>
-            <button class="close-detail" onclick="closeDetail()">✕</button>
-        </div>
-        <div class="detail-content">
-            <span class="news-category">Siyaset</span>
-            <h1>TBMM'de bütçe görüşmeleri başladı</h1>
-            <div class="news-meta">
-                <span><i class="far fa-clock"></i> 18 Şubat 2026, 15:30</span>
-                <span><i class="far fa-eye"></i> 45.678 okunma</span>
-                <span><i class="far fa-comment"></i> 234 yorum</span>
-            </div>
-            <img src="https://images.unsplash.com/photo-1541872703-74c5e44368f9?w=800" alt="Meclis">
-            <p>2026 yılı bütçe görüşmeleri TBMM Genel Kurulu'nda başladı. Görüşmelerin hafta sonuna kadar sürmesi bekleniyor.</p>
-            <p>Muhalefet partileri bütçeye tepki gösterdi.</p>
-        </div>
-    </div>
-
-    <div id="detail-faiz" class="detail-page">
-        <div class="detail-header">
-            <h1 onclick="openDetail('anasayfa')">Bildirio</h1>
-            <button class="close-detail" onclick="closeDetail()">✕</button>
-        </div>
-        <div class="detail-content">
-            <span class="news-category">Ekonomi</span>
-            <h1>Merkez Bankası'ndan faiz kararı</h1>
-            <div class="news-meta">
-                <span><i class="far fa-clock"></i> 18 Şubat 2026, 14:00</span>
-                <span><i class="far fa-eye"></i> 67.890 okunma</span>
-                <span><i class="far fa-comment"></i> 345 yorum</span>
-            </div>
-            <img src="https://images.unsplash.com/photo-1582794543139-8ac9cb0f7b11?w=800" alt="Merkez Bankası">
-            <p>Merkez Bankası PPK toplantısında faiz oranını yüzde 45'te sabit tuttu. Piyasalar kararı olumlu karşıladı.</p>
-        </div>
-    </div>
-
-    <div id="detail-togg" class="detail-page">
-        <div class="detail-header">
-            <h1 onclick="openDetail('anasayfa')">Bildirio</h1>
-            <button class="close-detail" onclick="closeDetail()">✕</button>
-        </div>
-        <div class="detail-content">
-            <span class="news-category">Teknoloji</span>
-            <h1>TOGG'un yeni modeli tanıtıldı</h1>
-            <div class="news-meta">
-                <span><i class="far fa-clock"></i> 18 Şubat 2026, 12:15</span>
-                <span><i class="far fa-eye"></i> 89.123 okunma</span>
-                <span><i class="far fa-comment"></i> 456 yorum</span>
-            </div>
-            <img src="https://images.unsplash.com/photo-1581091226033-d5c48150dbaa?w=800" alt="TOGG">
-            <p>Yerli elektrikli otomobil TOGG'un yeni SUV modeli görücüye çıktı. 2027'de satışa sunulacak.</p>
-        </div>
-    </div>
-
-    <div id="detail-iphone" class="detail-page">
-        <div class="detail-header">
-            <h1 onclick="openDetail('anasayfa')">Bildirio</h1>
-            <button class="close-detail" onclick="closeDetail()">✕</button>
-        </div>
-        <div class="detail-content">
-            <span class="news-category">Teknoloji</span>
-            <h1>iPhone 17 hakkında yeni sızıntılar</h1>
-            <div class="news-meta">
-                <span><i class="far fa-clock"></i> 18 Şubat 2026, 09:45</span>
-                <span><i class="far fa-eye"></i> 123.456 okunma</span>
-                <span><i class="far fa-comment"></i> 789 yorum</span>
-            </div>
-            <img src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=800" alt="iPhone">
-            <p>Apple'ın yeni amiral gemisi iPhone 17'nin kamera özellikleri ve tasarımı sızdırıldı.</p>
-        </div>
-    </div>
-
-    <div id="detail-nasa" class="detail-page">
-        <div class="detail-header">
-            <h1 onclick="openDetail('anasayfa')">Bildirio</h1>
-            <button class="close-detail" onclick="closeDetail()">✕</button>
-        </div>
-        <div class="detail-content">
-            <span class="news-category">Bilim</span>
-            <h1>NASA'dan Mars keşfinde çığır açan buluş</h1>
-            <div class="news-meta">
-                <span><i class="far fa-clock"></i> 18 Şubat 2026, 08:30</span>
-                <span><i class="far fa-eye"></i> 67.890 okunma</span>
-                <span><i class="far fa-comment"></i> 234 yorum</span>
-            </div>
-            <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=800" alt="NASA">
-            <p>Perseverance aracı Mars'ta organik moleküller keşfetti. Bilim dünyası heyecanlandı.</p>
-        </div>
-    </div>
-
-    <!-- Ek detay sayfaları (kategoriler, sosyal medya vs) -->
-    <div id="detail-gundem" class="detail-page">
-        <div class="detail-header">
-            <h1 onclick="openDetail('anasayfa')">Bildirio</h1>
-            <button class="close-detail" onclick="closeDetail()">✕</button>
-        </div>
-        <div class="detail-content">
-            <h1>Gündem Haberleri</h1>
-            <p>En güncel gündem haberleri burada yer alacak...</p>
-        </div>
-    </div>
-
-    <div id="detail-ekonomi" class="detail-page">
-        <div class="detail-header">
-            <h1 onclick="openDetail('anasayfa')">Bildirio</h1>
-            <button class="close-detail" onclick="closeDetail()">✕</button>
-        </div>
-        <div class="detail-content">
-            <h1>Ekonomi Haberleri</h1>
-            <p>En güncel ekonomi haberleri burada yer alacak...</p>
         </div>
     </div>
 
     <script>
-        // BİLDİRİM ÇUBUĞUNU KAPAT
-        function closeNotification(event) {
-            event.stopPropagation();
-            document.getElementById('notificationBar').style.display = 'none';
-        }
-
-        // BİLDİRİMLERİ AÇ
-        function subscribeNews(event) {
-            event.stopPropagation();
-            const email = document.getElementById('newsEmail').value;
-            if (email) {
-                alert('✅ Bildirimler açıldı! Yeni haberler e-posta adresinize gönderilecek: ' + email);
-            } else {
-                alert('❌ Lütfen e-posta adresinizi girin');
-            }
-        }
-
         // Haber detayını aç
         function openDetail(newsId) {
             console.log('Açılıyor:', newsId);
@@ -1126,8 +1107,7 @@
                 detailPage.classList.add('active');
                 document.body.style.overflow = 'hidden';
             } else {
-                // Eğer detay sayfası yoksa, varsayılan bir sayfa aç veya uyarı ver
-                alert('Bu haber detayı henüz eklenmemiş: ' + newsId);
+                alert('Bu haber detayı hazırlanıyor: ' + newsId);
             }
         }
 
@@ -1146,24 +1126,9 @@
             }
         });
 
-        // Periyodik bildirimler
-        setInterval(() => {
-            const notificationText = document.getElementById('notificationText');
-            const messages = [
-                '🔴 SON DAKİKA: Yeni siber saldırı haberi geldi! Tıkla...',
-                '🔴 SON DAKİKA: Ahmet Minguzu olayında flaş gelişme!',
-                '🔴 SON DAKİKA: Ekonomide yeni kriz kapıda!',
-                '🔴 SON DAKİKA: Beşiktaş\'ta sürpriz transfer!',
-                '🔴 SON DAKİKA: TOGG\'a rekor sipariş!'
-            ];
-            
-            const randomMessage = messages[Math.floor(Math.random() * messages.length)];
-            notificationText.innerHTML = randomMessage;
-        }, 30000);
-
         // Sayfa yüklendiğinde
         window.onload = function() {
-            console.log('Bildirio hazır - Tüm haberler tıklanabilir!');
+            console.log('Bildirio Profesyonel Sürüm - Tüm hakları saklıdır');
         };
     </script>
 </body>
